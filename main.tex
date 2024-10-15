@@ -24,6 +24,12 @@
 \definecolor{bg}{rgb}{0.95,0.95,0.92}
 \setminted{linenos=true, autogobble, bgcolor=bg, breaklines=true}
 
+\newcommand{\rojo}[1]{\mathbin{\color{red}#1}}
+\newcommand{\mora}[1]{\mathbin{\color{violet}#1}}
+\newcommand{\verd}[1]{\mathbin{\color{Green}#1}}
+\newcommand{\azul}[1]{\mathbin{\color{cyan}#1}}
+\newcommand{\nara}[1]{\mathbin{\color{BurntOrange}#1}}
+
 \begin{document}
 
 % Interlineate, it can be changed.
@@ -36,11 +42,47 @@
 }
 \clearpage
 
-\import{Secciones/}{2_Problema-1.tex}
+
+\import{Secciones/}{2_Problema-A.tex}
 \FloatBarrier 
+\newpage
+\import{Secciones/}{3_Problema-B.tex}
+\FloatBarrier 
+\newpage
+\import{Secciones/}{4_Problema-C.tex}
+\FloatBarrier 
+\newpage
+\import{Secciones/}{5_Problema-D.tex}
+\FloatBarrier 
+\newpage
+\import{Secciones/}{6_Problema-E.tex}
+\FloatBarrier 
+\newpage
+\import{Secciones/}{7_Problema-F.tex}
+\FloatBarrier 
+\newpage
+\import{Secciones/}{8_Problema-G.tex}
+\FloatBarrier 
+\newpage
+\import{Secciones/}{9_Problema-H.tex}
+\FloatBarrier 
+\newpage
+\import{Secciones/}{10_Problema-I.tex}
+\FloatBarrier 
+\newpage
+\import{Secciones/}{11_Problema-J.tex}
+\FloatBarrier 
+\newpage
 
 \clearpage
 \appendix
+\section*{Anexos} 
+\section{Código fuente del informe}
+El código fuente en \LaTeX\ del informe de la tarea, junto con todos los archivos
+\textit{MATLAB} utilizados para realizar las simulaciones y los cálculos están
+disponible en GitHub en el siguiente enlace: \textbf{CAMBIAR LINK}
+%\href{https://github.com/spiwocoal/Tarea-1-SDC}{spiwocoal/Tarea-1-SDC}.
+\section{Código Matlab} 
 \import{Secciones}{codigos.tex}
 
 \clearpage
