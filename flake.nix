@@ -3,8 +3,13 @@
   inputs = {
     nixpkgs.url = github:NixOS/nixpkgs/nixos-24.05;
     utils.url = github:numtide/flake-utils;
+
+    nix-matlab = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "gitlab:doronbehar/nix-matlab";
+    };
   };
-  outputs = { self, nixpkgs, utils, ... }:
+  outputs = { self, nixpkgs, utils, nix-matlab, ... }:
     utils.lib.eachDefaultSystem (system:
       let
         overlays = [
@@ -37,6 +42,14 @@
         pkgs = import nixpkgs { inherit system overlays; };
       in rec {
         devShells.default = pkgs.mkShell {
+          packages = with pkgs; [ python tex ];
+        };
+
+        devShells.matlab = pkgs.mkShell {
+          buildInputs = (with nix-matlab.packages.${system}; [
+            matlab
+          ]);
+          shellHook = nix-matlab.shellHooksCommon;
           packages = with pkgs; [ python tex ];
         };
 
