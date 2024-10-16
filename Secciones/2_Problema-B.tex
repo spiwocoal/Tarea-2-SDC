@@ -2,6 +2,34 @@
 
 \subsection{Desarrollo}
 
+Nos interesa entonces simular el sistema estudiado, con $k_{c} = 10\unit{m}$.
+La referencia para la cual se simulará es,
+\begin{equation}
+  \rojo{\psi_{d}}(t) = \rojo{\psi_{0}}\nara{k_{st}}\left(r(t-1) - r(t-5)\right) \mathbin{/} 4
+  \label{eq:referencia}
+\end{equation}
+
+Entonces, utilizamos \textit{MATLAB} y, al igual que para la tarea anterior,
+nos servimos del comando \verb|lsim| para simular el sistema, luego de haber
+creado un objeto que represente al sistema, utilizando las matrices
+$\mathbf{A}, \mathbf{B}, \mathbf{C}$ del sistema, y el comando \verb|tf|.
+
+\begin{figure}[h]
+  \centering
+  \input{Diagramas/psi_b.tex}
+  \caption{Variables de estado del sistema con contolador integrador, marginalmente estable}
+  \label{fig:psi-b}
+\end{figure}
+
+Las gráficas obtenidas mediante la simulación son aquellas de la \autoref{fig:psi-b} para
+la salida del sistema, y la \autoref{fig:estado-b} para las variables de estado.
+
+\begin{figure}[h]
+  \centering
+  \input{Diagramas/estado_b.tex}
+  \caption{Variables de estado del sistema con contolador integrador, marginalmente estable}
+  \label{fig:estado-b}
+\end{figure}
 
 \FloatBarrier
 \subsection{Comentarios}
