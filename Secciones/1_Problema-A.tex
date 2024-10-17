@@ -27,14 +27,14 @@ Donde ahora encontramos la función de transferencia del L.C, la cual llamaremos
 Ahora bien sabemos que el error en estado estacionario está dado por:
 
 \begin{equation}
-  e_{ss} = \lim_{t \to \infty} e(t) = \lim_{s \to 0} s E(s)
+  e_{ss} = \lim_{t \to \infty} e(t) = \lim_{s \to 0} s e(s)
 \end{equation}
 
 
-donde \( E(s) = \rojo{\psi_d}(s) - T(s) \cdot \rojo{\psi_d}(s) \), siendo \( T(s) \) la función de transferencia en lazo cerrado. Así, tenemos que:
+donde \( e(s) = \rojo{\psi_d}(s) - T(s) \cdot \rojo{\psi_d}(s) \), siendo \( T(s) \) la función de transferencia en lazo cerrado. Así, tenemos que:
 
 \begin{equation}
-  E(s) = \frac{\rojo{\psi_0}\nara{k_{st}}}{s} \left( 1 - \dfrac{\nara{k_ck_a} \frac{\nara{\nara{b_{0\omega}}}\left(\nara{b_{1\psi}}s + \nara{b_{0\psi}}\right)}
+  e(s) = \frac{\rojo{\psi_0}\nara{k_{st}}}{s} \left( 1 - \dfrac{\nara{k_ck_a} \frac{\nara{\nara{b_{0\omega}}}\left(\nara{b_{1\psi}}s + \nara{b_{0\psi}}\right)}
 {\left(\nara{a_{1\omega}}s + \nara{a_{0\omega}}\right)\left(\nara{a_{2\psi}}s^{2} + \nara{a_{1\psi}}s + \nara{a_{0\psi}}\right)}}{1+\nara{k_ck_a} \frac{\nara{\nara{b_{0\omega}}}\left(\nara{b_{1\psi}}s + \nara{b_{0\psi}}\right)}
 {\left(\nara{a_{1\omega}}s + \nara{a_{0\omega}}\right)\left(\nara{a_{2\psi}}s^{2} + \nara{a_{1\psi}}s + \nara{a_{0\psi}}\right)}\nara{k_{st}}} \right)
 \end{equation}

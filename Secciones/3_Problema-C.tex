@@ -1,6 +1,28 @@
 \section{Pregunta \texttt{c)}}\label{pregunta-c}
-
 \subsection{Desarrollo}
+
+En este apartado nos piden calcular, los polos y ceros de el lazo directo (L.D) 
+y el lazo cerrado (L.C.), por lo que primero encontramos las función de 
+transferencia de cada lazo tal que son las siguientes:
+
+\begin{itemize}
+    \item \textbf{L.D.:} Sabemos que es \( \nara{k_c k_a} \frac{\rojo{\psi}(s)}{\verd{v_i}(s)}\nara{k_st} \)
+    \begin{equation}
+        l(s)= \nara{k_ck_a} \frac{\nara{\nara{b_{0\omega}}}\left(\nara{b_{1\psi}}s + \nara{b_{0\psi}}\right)}
+        {\left(\nara{a_{1\omega}}s + \nara{a_{0\omega}}\right)\left(\nara{a_{2\psi}}s^{2} + \nara{a_{1\psi}}s + \nara{a_{0\psi}}\right)} \nara{k_st}
+    \end{equation}
+\end{itemize}
+
+\begin{itemize}
+    \item \textbf{L.C.:} El lazo cerrado lo sacamos simbólicamente del item \hyperref[pregunta-a]{\texttt{a)}}
+    \begin{equation}
+        h(s)= \dfrac{\nara{k_ck_a} \frac{\nara{\nara{b_{0\omega}}}\left(\nara{b_{1\psi}}s + \nara{b_{0\psi}}\right)}
+        {\left(\nara{a_{1\omega}}s + \nara{a_{0\omega}}\right)\left(\nara{a_{2\psi}}s^{2} + \nara{a_{1\psi}}s + \nara{a_{0\psi}}\right)}}{1+\nara{k_ck_a} \frac{\nara{\nara{b_{0\omega}}}\left(\nara{b_{1\psi}}s + \nara{b_{0\psi}}\right)}
+        {\left(\nara{a_{1\omega}}s + \nara{a_{0\omega}}\right)\left(\nara{a_{2\psi}}s^{2} + \nara{a_{1\psi}}s + \nara{a_{0\psi}}\right)}\nara{k_{st}}}
+    \end{equation}
+\end{itemize}
+
+
 
 \FloatBarrier
 \subsection{Comentarios}
