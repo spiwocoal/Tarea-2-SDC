@@ -8,11 +8,13 @@
 
 \begin{axis}[%
 width=0.37\textwidth,
-height=0.167\textheight,
-at={(0\textwidth,0.233\textheight)},
+height=0.251\textheight,
+at={(0\textwidth,0.349\textheight)},
 scale only axis,
 xmin=0,
 xmax=10,
+xlabel style={font=\color{white!15!black}},
+xlabel={Tiempo $[\unit{s}]$},
 ymin=0,
 ymax=0.15,
 ylabel style={font=\color{white!15!black}},
@@ -10042,11 +10044,13 @@ title={Entrada al actuador}
 
 \begin{axis}[%
 width=0.37\textwidth,
-height=0.167\textheight,
-at={(0.486\textwidth,0.233\textheight)},
+height=0.251\textheight,
+at={(0.486\textwidth,0.349\textheight)},
 scale only axis,
 xmin=0,
 xmax=10,
+xlabel style={font=\color{white!15!black}},
+xlabel={Tiempo $[\unit{s}]$},
 ymin=0,
 ymax=15,
 ylabel style={font=\color{white!15!black}},
@@ -20076,7 +20080,7 @@ title={Voltaje del motor}
 
 \begin{axis}[%
 width=0.37\textwidth,
-height=0.167\textheight,
+height=0.251\textheight,
 at={(0\textwidth,0\textheight)},
 scale only axis,
 xmin=0,
@@ -30112,7 +30116,7 @@ title={Velocidad angular de la bolita}
 
 \begin{axis}[%
 width=0.37\textwidth,
-height=0.167\textheight,
+height=0.251\textheight,
 at={(0.486\textwidth,0\textheight)},
 scale only axis,
 xmin=0,

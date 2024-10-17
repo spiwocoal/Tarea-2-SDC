@@ -18,20 +18,20 @@ f2 = figure(2);
 subplot(2,2,1);
 plot(t, w, 'b');
 title("Entrada al actuador");
-xlabel("Tiempo $[\unit{s}]$");
+% xlabel("Tiempo $[\unit{s}]$");
 ylabel("$\azul{w}$");
 
 subplot(2,2,2);
 plot(t, v_i, 'g');
 title("Voltaje del motor");
-xlabel("Tiempo $[\unit{s}]$");
-ylabel("$\verd{v_{i}}\ [\unit{V}]");
+% xlabel("Tiempo $[\unit{s}]$");
+ylabel("$\verd{v_{i}}\ [\unit{V}]$");
 
 subplot(2,2,3);
 plot(t, dpsi, 'r');
 title("Velocidad angular de la bolita");
 xlabel("Tiempo $[\unit{s}]$");
-ylabel("$\rojo{dot{\psi}}\ [\unit{deg/s}]$");
+ylabel("$\rojo{\dot{\psi}}\ [\unit{deg/s}]$");
 
 subplot(2,2,4);
 plot(t, omega);
@@ -47,6 +47,6 @@ if exportar
   matlab2tikz('figurehandle', f1, 'width', '0.9\textwidth', 'height', '0.3\textheight', ...
     'interpretTickLabelsAsTex', true, 'parseStrings', false, './psi_b.tex');
 
-  matlab2tikz('figurehandle', f2, 'width', '0.9\textwidth', 'height', '0.6\textheight', ...
+  matlab2tikz('figurehandle', f2, 'width', '0.9\textwidth', 'height', '0.4\textheight', ...
     'interpretTickLabelsAsTex', true, 'parseStrings', false, './estado_b.tex');
 end
