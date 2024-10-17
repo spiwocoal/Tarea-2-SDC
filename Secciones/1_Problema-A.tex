@@ -3,9 +3,78 @@
 \subsection{Desarrollo}
 
 En este apartado se nos solicita determinar la expresión algebraica del error en
-S.S. para la entrada generalizada \( \rojo{\psi_d} = \frac{\rojo{\psi_0}\nara{k_{st}}}{s} \),
-controlador \(h_{c}(s)=\nara{k_c}\) un sensor / transmisor \(\nara{k_{st}}\),
-y un actuador \(\nara{k_{a}}\). 
+S.S. para el sistema en lazo cerrado (\autoref{fig:diag-lc}), con entrada generalizada
+\( \rojo{\psi_d} = \frac{\rojo{\psi_0}\nara{k_{st}}}{s} \), controlador
+\(h_{c}(s)=\mora{k_{c}}\) un sensor / transmisor \(\nara{k_{st}}\), y un actuador
+\(\nara{k_{a}}\). 
+
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}
+    % Suma
+    \node[draw,
+        circle,
+        minimum size=0.6cm,
+        fill=white!50
+    ] (sum) at (0,0){};
+     
+    \draw (sum.north east) -- (sum.south west)
+        (sum.north west) -- (sum.south east);
+     
+    \draw (sum.north east) -- (sum.south west)
+    (sum.north west) -- (sum.south east);
+     
+    \node[left=-2pt] at (sum.center){\tiny $+$};
+    \node[below=-1pt] at (sum.center){\tiny $-$};
+     
+    % Controlador
+    \node [block,
+        fill=white,
+        right=1cm of sum
+      ]  (controller) {$h_{c}(s)$};
+    
+    % Actuador
+    \node [block,
+        fill=white, 
+        right=1.5cm of controller
+      ] (actuator) {$\nara{k_{a}}$};
+     
+    % Sistema H(s)
+    \node [block,
+        fill=white, 
+        right=1.5cm of actuator
+      ] (system) {$\rojo{\psi}(s)\mathbin{/}\verd{v_{i}}(s)$};
+     
+    % Sensor/Transmisor
+    \node [block,
+        fill=white, 
+        below right= 1cm and -0.25cm of controller
+      ]  (sensor) {$\nara{k_{st}}$};
+     
+    % Arrows with text label
+    \draw[-stealth] (sum.east) -- (controller.west)
+        node[midway,above]{};
+     
+    \draw[-stealth] (controller.east) -- (actuator.west) 
+        node[midway,above]{$\azul{w}$};
+    
+    \draw[-stealth] (actuator.east) -- (system.west) 
+        node[midway,above]{$\verd{v_{i}}$};
+     
+    \draw[-stealth] (system.east) -- ++ (1.25,0) 
+        node[midway](output){}node[midway,above]{$\rojo{\psi}$};
+     
+    \draw[-stealth] (output.center) |- (sensor.east);
+     
+    \draw[-stealth] (sensor.west) -| (sum.south) 
+        node[near end,left]{$\rojo{\psi_{m}}$};
+     
+    \draw (sum.west) -- ++(-1,0) 
+        node[midway,above]{$\rojo{\psi_{d}}$};
+  \end{tikzpicture}
+  \caption{Lazo cerrado de control para el sistema.}\label{fig:diag-lc}
+\end{figure}
+
 
 Ahora bien, de la tarea anterior tenemos que:
 \begin{equation}
@@ -16,58 +85,49 @@ Ahora bien, de la tarea anterior tenemos que:
 
 Donde ahora encontramos la función de transferencia del L.C, la cual llamaremos
 \(T(s)\). Obtenemos que:
-
 \begin{equation}
-  T(s) = \frac{G(s)}{1 + G(s)r(s)} = \dfrac{\nara{k_ck_a} \frac{\nara{\nara{b_{0\omega}}}\left(\nara{b_{1\psi}}s + \nara{b_{0\psi}}\right)}
-  {\left(\nara{a_{1\omega}}s + \nara{a_{0\omega}}\right)\left(\nara{a_{2\psi}}s^{2} + \nara{a_{1\psi}}s + \nara{a_{0\psi}}\right)}}{1+\nara{k_ck_a} \frac{\nara{\nara{b_{0\omega}}}\left(\nara{b_{1\psi}}s + \nara{b_{0\psi}}\right)}
+  T(s) = \frac{G(s)}{1 + G(s)r(s)} = \dfrac{\mora{k_c}\nara{k_a} \frac{\nara{\nara{b_{0\omega}}}\left(\nara{b_{1\psi}}s + \nara{b_{0\psi}}\right)}
+  {\left(\nara{a_{1\omega}}s + \nara{a_{0\omega}}\right)\left(\nara{a_{2\psi}}s^{2} + \nara{a_{1\psi}}s + \nara{a_{0\psi}}\right)}}{1+\mora{k_c}\nara{k_a} \frac{\nara{\nara{b_{0\omega}}}\left(\nara{b_{1\psi}}s + \nara{b_{0\psi}}\right)}
   {\left(\nara{a_{1\omega}}s + \nara{a_{0\omega}}\right)\left(\nara{a_{2\psi}}s^{2} + \nara{a_{1\psi}}s + \nara{a_{0\psi}}\right)}\nara{k_{st}}}
 \end{equation}
 
 
 Ahora bien sabemos que el error en estado estacionario está dado por:
-
 \begin{equation}
   e_{ss} = \lim_{t \to \infty} e(t) = \lim_{s \to 0} s e(s)
-\end{equation}+
+\end{equation}
 
-
-donde \( e(s) = \rojo{\psi_d}(s) - T(s) \cdot \rojo{\psi_d}(s) \), siendo \( T(s) \) la función de transferencia en lazo cerrado. Así, tenemos que:
-
+Donde \( e(t) = \rojo{\psi_{d}}(t) - \rojo{\psi_{m}}(t) \). Así, tenemos que:
 \begin{equation}
-  e(s) = \frac{\rojo{\psi_0}\nara{k_{st}}}{s} \left( 1 - \dfrac{\nara{k_ck_a} \frac{\nara{\nara{b_{0\omega}}}\left(\nara{b_{1\psi}}s + \nara{b_{0\psi}}\right)}
-{\left(\nara{a_{1\omega}}s + \nara{a_{0\omega}}\right)\left(\nara{a_{2\psi}}s^{2} + \nara{a_{1\psi}}s + \nara{a_{0\psi}}\right)}}{1+\nara{k_ck_a} \frac{\nara{\nara{b_{0\omega}}}\left(\nara{b_{1\psi}}s + \nara{b_{0\psi}}\right)}
+  e(s) = \frac{\rojo{\psi_0}\nara{k_{st}}}{s} \left( 1 - \dfrac{\mora{k_c}\nara{k_a} \frac{\nara{\nara{b_{0\omega}}}\left(\nara{b_{1\psi}}s + \nara{b_{0\psi}}\right)}
+  {\left(\nara{a_{1\omega}}s + \nara{a_{0\omega}}\right)\left(\nara{a_{2\psi}}s^{2} + \nara{a_{1\psi}}s + \nara{a_{0\psi}}\right)}}{1+\mora{k_c}\nara{k_a} \frac{\nara{\nara{b_{0\omega}}}\left(\nara{b_{1\psi}}s + \nara{b_{0\psi}}\right)}
 {\left(\nara{a_{1\omega}}s + \nara{a_{0\omega}}\right)\left(\nara{a_{2\psi}}s^{2} + \nara{a_{1\psi}}s + \nara{a_{0\psi}}\right)}\nara{k_{st}}} \right)
 \end{equation}
 
 
 Simplificando, obtenemos:
-
 \begin{equation}
-  e(s) = \frac{\rojo{\psi_0}\nara{k_{st}}}{s} \cdot \frac{1}{1+\nara{k_ck_a} \frac{\nara{\nara{b_{0\omega}}}\left(\nara{b_{1\psi}}s + \nara{b_{0\psi}}\right)}
+  e(s) = \frac{\rojo{\psi_0}\nara{k_{st}}}{s} \cdot \frac{1}{1+\mora{k_c}\nara{k_a} \frac{\nara{\nara{b_{0\omega}}}\left(\nara{b_{1\psi}}s + \nara{b_{0\psi}}\right)}
   {\left(\nara{a_{1\omega}}s + \nara{a_{0\omega}}\right)\left(\nara{a_{2\psi}}s^{2} + \nara{a_{1\psi}}s + \nara{a_{0\psi}}\right)}\nara{k_{st}}}
 \end{equation}
 
 
 Aplicamos el teorema del valor final:
-
 \begin{equation}
-  e_{ss} = \lim_{s \to 0} s \cdot \frac{\rojo{\psi_0}\nara{k_{st}}}{s} \cdot \frac{1}{1 + \nara{k_c k_a} \cdot \frac{\nara{b_{0\omega}b_{0\psi}}}{\nara{a_{0\omega}a_{0\psi}}} \nara{k_{st}}}
+  e_{ss} = \lim_{s \to 0} s \cdot \frac{\rojo{\psi_0}\nara{k_{st}}}{s} \cdot \frac{1}{1 + \mora{k_c}\nara{k_a} \cdot \frac{\nara{b_{0\omega}b_{0\psi}}}{\nara{a_{0\omega}a_{0\psi}}} \nara{k_{st}}}
 \end{equation}
 
 
 Finalmente, obtenemos que el error en estado estacionario es:
-
-
 \begin{equation} \tag{1} \label{eq:e_ss_symbolic}
-  e_{ss} = \frac{\rojo{\psi_0}\nara{k_{st}}}{1 + \nara{k_c k_a} \cdot \frac{\nara{b_{0\omega}b_{0\psi}}}{\nara{a_{0\omega}a_{0\psi}}} \nara{k_{st}}}
+  e_{ss} = \frac{\rojo{\psi_0}\nara{k_{st}}}{1 + \mora{k_c}\nara{k_a} \cdot \frac{\nara{b_{0\omega}b_{0\psi}}}{\nara{a_{0\omega}a_{0\psi}}} \nara{k_{st}}}
 \end{equation}
 
 Ahora bien sabemos que los valores correspondientes son:
-
 \begin{multicols}{3}
   \begin{itemize}
     \item \( \rojo{\psi_0} = \displaystyle\frac{30° \pi}{180°} \)
-    \item \(h_c(s) = \nara{k_c} = 0.01\)
+    \item \(h_c(s) = \mora{k_{c}} = 0.01\)
     \item \(\nara{k_{st}} = \displaystyle\frac{180°}{\pi}\)
     \item \(\nara{k_{a}} = 100 \)
     \item \(\nara{b_{0\omega}} = \nara{G} =0.0175 \)
@@ -78,8 +138,7 @@ Ahora bien sabemos que los valores correspondientes son:
 \end{multicols}
 
 
-Donde ahora reemplazamos estos valores en  en \(e_{ss}\) obtenemos que 
-
+Donde ahora reemplazamos estos valores en \(e_{ss}\) y obtenemos que,
 \begin{equation}
   e_{ss} = \frac{\left(\frac{30 \pi}{180}\right) \cdot \frac{180}{\pi}}{1 + 10 \cdot 100 \cdot \frac{0.0175 \cdot 126.4751}{1 \cdot 112} \cdot \frac{180}{\pi}} = 14.0696
 \end{equation}
@@ -88,15 +147,14 @@ Donde ahora reemplazamos estos valores en  en \(e_{ss}\) obtenemos que
 \boxed{\therefore e_{ss} = 14.0696}
 \]
 
-Siendo es el valor del error en estado estacionario para la entrada generalizada que nos dieron.
-
+Siendo este el valor del error en estado estacionario para la entrada generalizada que nos dieron.
 
 \FloatBarrier
 \subsection{Comentarios}
 
-Al estudiar el comportamiento en estado estacionario de un sistema de control, es crucial analizar el error en ese régimen, ya que nos permite evaluar el rendimiento del sistema a largo plazo. Este error en estado estacionario está directamente relacionado con el tipo de controlador que se utilice. En este caso, estamos utilizando un controlador proporcional (de tipo ganancia \(\nara{k_c}\)), lo que implica que el sistema no cuenta con integradores. Esto provoca que el error en estado estacionario no sea cero, ya que los controladores proporcionales solo pueden reducir el error, pero no eliminarlo completamente (Esto se puede corroborar revisando la pregunta C o D, en la Tarea 1 en donde se simulo y gráfico un controlador proporcional con ganancia \(\nara{k_c} \) ). Para lograr un error nulo, sería necesario incorporar un integrador que corrija la acumulación de error a lo largo del tiempo.
+Al estudiar el comportamiento en estado estacionario de un sistema de control, es crucial analizar el error en ese régimen, ya que nos permite evaluar el rendimiento del sistema a largo plazo. Este error en estado estacionario está directamente relacionado con el tipo de controlador que se utilice. En este caso, estamos utilizando un controlador proporcional (de tipo ganancia \(\mora{k_{c}}\)), lo que implica que el sistema no cuenta con integradores. Esto provoca que el error en estado estacionario no sea cero, ya que los controladores proporcionales solo pueden reducir el error, pero no eliminarlo completamente (Esto se puede corroborar revisando la pregunta C o D, en la Tarea 1 en donde se simulo y gráfico un controlador proporcional con ganancia \(\mora{k_{c}} \) ). Para lograr un error nulo, sería necesario incorporar un integrador que corrija la acumulación de error a lo largo del tiempo.
 
-Además, Como lo hicimos de manera simbólica podemos ver que los parámetros del sistema que afectan directamente en el valor de este error en estado estacionario. Como podemos ver en la \eqref{eq:e_ss_symbolic} se encuentran la ganancia del controlador \(\nara{k_c}\), la ganancia del actuador \(\nara{k_a}\), y otras constantes del sistema, como \(\nara{b_{0\omega}}\), \(\nara{b_{0\psi}}\), \(\nara{a_{0\omega}}\) y \(\nara{a_{0\psi}}\), que forman parte de la dinámica de la planta. Pero los únicos que podemos variar para modificar el error son el \(\nara{k_c}\) o \(\nara{k_a}\) ya sea, disminuyéndolos o aumentándolos, aunque el error nunca se elimina por completo debido a la falta de un integrador como mencionamos anteriormente. Pero cabe destacar que para efectos de este curso, solo influiría el \(\nara{k_c}\) en el cambio de el error s.s., dado que es la variable que manipulamos en el curso. Por otro lado, parámetros como el valor inicial del sistema o la señal deseada influyen más en el comportamiento transitorio y no afectan directamente el error en estado estacionario.
+Además, Como lo hicimos de manera simbólica podemos ver que los parámetros del sistema que afectan directamente en el valor de este error en estado estacionario. Como podemos ver en la \eqref{eq:e_ss_symbolic} se encuentran la ganancia del controlador \(\mora{k_{c}}\), la ganancia del actuador \(\nara{k_a}\), y otras constantes del sistema, como \(\nara{b_{0\omega}}\), \(\nara{b_{0\psi}}\), \(\nara{a_{0\omega}}\) y \(\nara{a_{0\psi}}\), que forman parte de la dinámica de la planta. Pero los únicos que podemos variar para modificar el error son el \(\mora{k_{c}}\) o \(\nara{k_a}\) ya sea, disminuyéndolos o aumentándolos, aunque el error nunca se elimina por completo debido a la falta de un integrador como mencionamos anteriormente. Pero cabe destacar que para efectos de este curso, solo influiría el \(\mora{k_{c}}\) en el cambio de el error s.s., dado que es la variable que manipulamos en el curso. Por otro lado, parámetros como el valor inicial del sistema o la señal deseada influyen más en el comportamiento transitorio y no afectan directamente el error en estado estacionario.
 
 Es importante destacar que el parámetro \(\nara{k_{st}}\), que corresponde a la ganancia del sensor o transmisor, no influye en la magnitud del error en estado estacionario, ya que simplemente se encarga de escalar la señal de entrada o salida sin modificar la capacidad del sistema para corregir el error.
 

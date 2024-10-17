@@ -22,10 +22,9 @@ ylabel={$\rojo{\psi}\ [\unit{deg}]$},
 axis background/.style={fill=white},
 title style={font=\bfseries\color{white!15!black}},
 title={Ángulo de referencia y la salida obtenida},
-legend style={legend cell align=left, align=left},
-legend pos=north west
+legend style={at={(0.03,0.97)}, anchor=north west, legend cell align=left, align=left}
 ]
-\addplot [color=red, forget plot]
+\addplot [color=red, line width=1.5pt, forget plot]
   table[row sep=crcr]{%
 0	0\\
 0.001000100010001	0\\
@@ -4029,7 +4028,7 @@ legend pos=north west
 3.999399939994	11.1203459695196\\
 4.000400040004	11.1233371181195\\
 };
-\addplot [color=red, forget plot]
+\addplot [color=red, line width=1.5pt, forget plot]
   table[row sep=crcr]{%
 4.000400040004	11.1233371181195\\
 4.001400140014	11.1263267567523\\
@@ -8033,7 +8032,7 @@ legend pos=north west
 7.999799979998	15.9372790143272\\
 8.000800080008	15.938484791751\\
 };
-\addplot [color=red]
+\addplot [color=red, line width=1.5pt]
   table[row sep=crcr]{%
 8.000800080008	15.938484791751\\
 8.001800180018	15.9396889731715\\
@@ -10038,7 +10037,7 @@ legend pos=north west
 };
 \addlegendentry{Ángulo medido $\rojo{\psi_{m}}$}
 
-\addplot [color=red, dashed, forget plot]
+\addplot [color=red, dashed, line width=1.5pt, forget plot]
   table[row sep=crcr]{%
 0	0\\
 0.001000100010001	0\\
@@ -14042,7 +14041,7 @@ legend pos=north west
 3.999399939994	22.495499549955\\
 4.000400040004	22.50300030003\\
 };
-\addplot [color=red, dashed, forget plot]
+\addplot [color=red, dashed, line width=1.5pt, forget plot]
   table[row sep=crcr]{%
 4.000400040004	22.50300030003\\
 4.001400140014	22.510501050105\\
@@ -18046,7 +18045,7 @@ legend pos=north west
 7.999799979998	30\\
 8.000800080008	30\\
 };
-\addplot [color=red, dashed]
+\addplot [color=red, dashed, line width=1.5pt]
   table[row sep=crcr]{%
 8.000800080008	30\\
 8.001800180018	30\\
@@ -20050,5 +20049,6 @@ legend pos=north west
 10	30\\
 };
 \addlegendentry{Referencia $\rojo{\psi_{d}}$}
+
 \end{axis}
 \end{tikzpicture}%
