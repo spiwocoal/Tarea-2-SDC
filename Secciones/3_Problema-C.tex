@@ -22,7 +22,7 @@ transferencia de cada lazo tal que son las siguientes:
     \columnbreak
     \textbf{Cero}
     \begin{itemize}
-        \item \(C_0 = -4.4609\)
+        \item \(Z_0 = -4.4609\)
     \end{itemize}
   \end{multicols}
 
@@ -44,7 +44,7 @@ transferencia de cada lazo tal que son las siguientes:
         \columnbreak
         \textbf{Cero}
         \begin{itemize}
-            \item \(C_0 = -4.4609\)
+            \item \(Z_0 = -4.4609\)
         \end{itemize}
       \end{multicols}
 \end{itemize}
@@ -57,14 +57,10 @@ transferencia de cada lazo tal que son las siguientes:
 \subsection{Comentarios}
 
 
-\textbf{!AQUÍ COMENTARIOS NO OLVIDAR!}
+Observamos que al cerrar el lazo, los polos complejos conjugados se desplazan hacia la derecha en el plano complejo (menos negativos) y aumentan en frecuencia imaginaria. Esto indica que el sistema en lazo cerrado tiene una respuesta más rápida pero menos amortiguada en comparación con el lazo directo.
 
-Posibles Comentarios
-\begin{itemize}
-    \item Relación entre los polos de la F. de T. en L.D. y en L.C.
-    \item Relación entre los ceros de la F. de T. en L.D. y en L.C.
-    \item Depende de la ganancia del controlador la ubicación de los ceros
-    \item Depende de la ganancia del controlador la ubicación de los polos
-    \item Cómo cambian los resultados para otro punto de operación
-    \item Qué parámetro no influye en la ubicación de los polos y ceros
-\end{itemize}
+Ademas en ambos casos el cero es \(Z= -4.4609\), esto nos dice que el cero del sistema en solo se ve afectado por la planta y no se ve afectado por ninguna de las variables de del lazo ni por el \(\nara{K_c}\) en este caso específico.
+
+Ahora bien, vemos que la ganancia del controlador \( k_c \) afecta significativamente la ubicación de los polos en el lazo cerrado. Al modificar \( k_c \), influimos en la realimentación del sistema, lo que altera la dinámica y, por ende, la posición de los polos en el plano complejo. Esto es fundamental en el diseño de controladores para lograr la estabilidad y el desempeño deseado.
+
+En resumen al comparar los polos y ceros entre el lazo directo y el lazo cerrado, podemos concluir que la ganancia del controlador \( k_c \) juega un papel crucial en la ubicación de los polos en el lazo cerrado, afectando la estabilidad y respuesta del sistema. Sin embargo, la ubicación del cero permanece constante, indicando que es solo afectada por la planta.

@@ -1,7 +1,81 @@
 \section{Pregunta \texttt{f)}}\label{pregunta-f}
-
-
 \subsection{Desarrollo}
+
+Para este apartado nos piden determinar los $\nara{k_{c}}$ para los cuales el L.G.R. tiene por lo menos una raíz marginalmente estable. Nos ayudaremos de \textit{MATLAB}, con
+el código disponible en \autoref{lst:problema-F}, para hacer los cálculos
+de manera simbólica.
+
+Entonces, empezamos por obtener la función de transferencia del sistema para
+cualquier $\nara{k_{c}}$. Para esto, usamos lo visto en \eqref{eq:fdt-lc}.
+
+Símbolicamente entonces se tiene que la función de transferencia es
+\begin{equation}
+    \frac{G(s)}{1 + G(s)r(s)} = \dfrac{\nara{k_ck_a} \frac{\nara{\nara{b_{0\omega}}}\left(\nara{b_{1\psi}}s + \nara{b_{0\psi}}\right)}
+    {\left(\nara{a_{1\omega}}s + \nara{a_{0\omega}}\right)\left(\nara{a_{2\psi}}s^{2} + \nara{a_{1\psi}}s + \nara{a_{0\psi}}\right)}}{1+\nara{k_ck_a} \frac{\nara{\nara{b_{0\omega}}}\left(\nara{b_{1\psi}}s + \nara{b_{0\psi}}\right)}
+    {\left(\nara{a_{1\omega}}s + \nara{a_{0\omega}}\right)\left(\nara{a_{2\psi}}s^{2} + \nara{a_{1\psi}}s + \nara{a_{0\psi}}\right)}\nara{k_{st}}}
+\end{equation}
+
+Reordenadando la expresión utilizando \textit{MATLAB} obtenemos:
+\begin{equation}\label{eq:fdt-lc-1}
+    \frac{(\nara{k_a k_a b_{1\psi} b_{0\psi}})s + \nara{k_a k_a b_{0\psi} b_{0\omega}}}
+    {(\nara{a_{2\psi} a_{1\omega}})s^3 + (\nara{a_{1\psi} a_{1\omega} + a_{2\psi} a_{0\omega}})s^2 + (\nara{a_{0\psi} a_{1\omega} + a_{1\psi} a_{0\omega} + k_a k_c k_{st} b_{1\psi} b_{0\omega}})s + \nara{a_{0\psi} a_{0\omega} + k_a k_c k_{st} b_{0\psi} b_{0\omega}}}
+\end{equation}
+
+Nos enfocamos entonces en el denominador que es donde se ecuentran lo polos y
+utilizamos el criterio de Routh-Hurwitz para analizar la estabilidad. Trabajaremos
+entonces con el denominador de \eqref{eq:fdt-lc-1}, donde $\nara{a_3},\nara{a_2},\nara{a_1},\nara{a_0}$
+representan los coeficientes del polinomio:
+\begin{align}
+    P(s) = \nara{a_3} s^3 + \nara{a_2} s^2 + \nara{a_1} s + \nara{a_0} &
+\end{align}
+
+Construimos entonces la tabla para el criterio de Routh-Hurwitz, y observamos
+que no hay ceros presentes en la columan pivote:
+\begin{equation}
+  \begin{array}{c|cc}
+    s^3 & \nara{a_3} & \nara{a_1} \\
+    s^2 & \nara{a_2} & \nara{a_0} \\
+    s^1 & \nara{b_1} & 0 \\
+    s^0 & \nara{b_0} & 
+  \end{array}
+\end{equation}
+
+Donde sabemos que:
+\begin{align}
+  \nara{b_1} = \frac{\nara{a_2 a_1} - \nara{a_3 a_0}}{\nara{a_2}},\quad
+  \nara{b_0} = \nara{a_0}
+\end{align}
+
+Para tener estabilidad en el sistema, los coeficientes de la primera columna
+deben ser todos positivos. Entonces, la condición $\nara{b_1} > 0$ garantiza
+que el sistema vaya a ser estable.
+
+Reemplazamos los coeficientes y obtenemos
+\begin{equation}
+    \nara{b_1}=\frac{
+        \left(\nara{a_{1\psi} a_{1\omega}} + \nara{a_{2\psi} a_{0\omega}}\right)
+        \left(\nara{a_{0\psi} a_{1\omega}} + \nara{a_{1\psi} a_{0\omega}} + \nara{k_a k_c k_{st} b_{1\psi} b_{0\omega}}\right) 
+        - \nara{a_{2\psi} a_{1\omega}} 
+        \left(\nara{a_{0\psi} a_{0\omega}} + \nara{k_a k_c k_{st} b_{0\psi} b_{0\omega}}\right)
+    }{
+        \nara{a_{1\psi} a_{1\omega}} + \nara{a_{2\psi} a_{0\omega}}
+    } > 0
+\end{equation}
+
+Resolvemos entonces para $\nara{k_{c}}$, y vemos que para que el sistema sea
+estable se necesita que
+\begin{align}
+       \nara{k_{c}} &< \dfrac{-(\nara{a_{1\psi} a_{1\omega}}(\nara{a_{0\psi} a_{1\omega}} + \nara{a_{1\psi} a_{0\omega}}) + \nara{ a_{2\psi} a_{0\omega} }(\nara{a_{0\psi} a_{1\omega}} + \nara{a_{1\psi} a_{0\omega}}) - \nara{a_{2\psi} a_{1\omega} a_{0\psi} a_{0\omega}})}  {(\nara{a_{1\psi} a_{1\omega} k_a k_{st} b_{1\psi} b_{0\omega}}) + (\nara{a_{2\psi} a_{0\omega} k_a k_{st} b_{1\psi} b_{0\omega}}) - (\nara{a_{2\psi} a_{1\omega} k_a k_{st} b_{0\psi} b_{0\omega}})} \\
+  \iff \nara{k_{c}} &< 0.0222
+\end{align}
+
+Para que el sistema sea estable entonces se debe cumplir lo anterior. Pero
+como solo nos interesa que sea marginalmente estable, entonces el $\nara{k_{c}}$
+que hace que el sistema lo sea es:
+\begin{equation}
+    \boxed{\nara{k_c} = 0.0222}
+\end{equation}
+
 
 \FloatBarrier
 \subsection{Comentarios}

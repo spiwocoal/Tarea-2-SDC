@@ -22,8 +22,8 @@ Fdt_LaC = tf(LaC);  % FdeT Lazo Cerrado
 disp('Polos del L.D:');
 disp(p_LaD);
 disp('Polos del L.C:');
-disp(p_LC);
+disp(p_LaC);
 disp('ceros del L.D:');
 disp(z_LaD);
 disp('ceros del L.C:');
-disp(z_LC);
+disp(z_LaC);
