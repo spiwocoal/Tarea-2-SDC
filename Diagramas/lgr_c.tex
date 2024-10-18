@@ -1,0 +1,52 @@
+% This file was created by matlab2tikz.
+%
+%The latest updates can be retrieved from
+%  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
+%where you can also make suggestions and rate matlab2tikz.
+%
+\begin{tikzpicture}
+
+\begin{axis}[%
+width=5.958cm,
+height=6cm,
+at={(0cm,0cm)},
+scale only axis,
+separate axis lines,
+every outer x axis line/.append style={white!15!black},
+every x tick label/.append style={font=\color{white!15!black}},
+every x tick/.append style={white!15!black},
+xmin=-12,
+xmax=2,
+every outer y axis line/.append style={white!15!black},
+every y tick label/.append style={font=\color{white!15!black}},
+every y tick/.append style={white!15!black},
+ymin=-30,
+ymax=30,
+axis background/.style={fill=white},
+legend pos=north west
+]
+\addplot [color=lightgray, dotted, forget plot]
+  table[]{Diagramas/data/lgr_c_neg-1.tsv};
+\addplot [color=lightgray, dotted, forget plot]
+  table[]{Diagramas/data/lgr_c_neg-2.tsv};
+
+\addplot [color=red, line width=1.5pt]
+  table[]{Diagramas/data/lgr_c_pos-3.tsv};
+  \addlegendentry{$\mora{k_{c}} > 0$}
+\addplot [color=ForestGreen, line width=1.5pt, forget plot]
+  table[]{Diagramas/data/lgr_c_pos-4.tsv};
+\addplot [color=cyan, line width=1.5pt, forget plot]
+  table[]{Diagramas/data/lgr_c_pos-5.tsv};
+
+\addplot [color=red, dashed, line width=1.5pt]
+  table[]{Diagramas/data/lgr_c_neg-3.tsv};
+  \addlegendentry{$\mora{k_{c}} < 0$}
+\addplot [color=ForestGreen, dashed, line width=1.5pt, forget plot]
+  table[]{Diagramas/data/lgr_c_neg-4.tsv};
+\addplot [color=cyan, dashed, line width=1.5pt, forget plot]
+  table[]{Diagramas/data/lgr_c_neg-5.tsv};
+
+\addplot[only marks, mark=o, mark size=2.0000pt, thick, draw=Fuchsia, forget plot] table[]{Diagramas/data/lgr_c_pos-6.tsv};
+\addplot[only marks, mark=x, mark size=2.5000pt, thick, draw=Fuchsia, forget plot] table[]{Diagramas/data/lgr_c_pos-7.tsv};
+\end{axis}
+\end{tikzpicture}%

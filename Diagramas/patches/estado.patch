@@ -1,0 +1,171 @@
+--- estado_orig.tex
++++ estado_new.tex
+@@ -4,9 +4,6 @@
+ %  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
+ %where you can also make suggestions and rate matlab2tikz.
+ %
+-\definecolor{mycolor1}{rgb}{0.12941,0.12941,0.12941}%
+-\definecolor{mycolor2}{rgb}{0.00000,0.44700,0.74100}%
+-%
+ \begin{tikzpicture}
+ 
+ \begin{axis}[%
+@@ -18,13 +15,19 @@
+ xmax=10,
+ ymin=0,
+ ymax=0.15,
+-ylabel style={font=\color{mycolor1}},
++ylabel style={font=\color{white!15!black}},
+ ylabel={$\azul{w}$},
++y tick label style={
++  /pgf/number format/.cd,
++      fixed,
++      precision=2,
++  /tikz/.cd
++},
+ axis background/.style={fill=white},
+-title style={font=\bfseries\color{mycolor1}},
++title style={font=\bfseries\color{white!15!black}},
+ title={Entrada al actuador}
+ ]
+-\addplot [color=blue, line width=1.5pt, forget plot]
++\addplot [color=cyan, line width=1.5pt, forget plot]
+   table[row sep=crcr]{%
+ 0	0\\
+ 0.001000100010001	0\\
+@@ -4028,7 +4031,7 @@
+ 3.999399939994	0.113751535804354\\
+ 4.000400040004	0.113796631819105\\
+ };
+-\addplot [color=blue, line width=1.5pt, forget plot]
++\addplot [color=cyan, line width=1.5pt, forget plot]
+   table[row sep=crcr]{%
+ 4.000400040004	0.113796631819105\\
+ 4.001400140014	0.113841742933527\\
+@@ -8032,7 +8035,7 @@
+ 7.999799979998	0.140627209856728\\
+ 8.000800080008	0.14061515208249\\
+ };
+-\addplot [color=blue, line width=1.5pt, forget plot]
++\addplot [color=cyan, line width=1.5pt, forget plot]
+   table[row sep=crcr]{%
+ 8.000800080008	0.14061515208249\\
+ 8.001800180018	0.140603110268285\\
+@@ -10046,13 +10049,19 @@
+ xmax=10,
+ ymin=0,
+ ymax=15,
+-ylabel style={font=\color{mycolor1}},
++ylabel style={font=\color{white!15!black}},
+ ylabel={$\verd{v_{i}}\ [\unit{V}]$},
++y tick label style={
++  /pgf/number format/.cd,
++      fixed,
++      precision=2,
++  /tikz/.cd
++},
+ axis background/.style={fill=white},
+-title style={font=\bfseries\color{mycolor1}},
++title style={font=\bfseries\color{white!15!black}},
+ title={Voltaje del motor}
+ ]
+-\addplot [color=green, line width=1.5pt, forget plot]
++\addplot [color=Green, line width=1.5pt, forget plot]
+   table[row sep=crcr]{%
+ 0	0\\
+ 0.001000100010001	0\\
+@@ -14056,7 +14065,7 @@
+ 3.999399939994	11.3751535804354\\
+ 4.000400040004	11.3796631819105\\
+ };
+-\addplot [color=green, line width=1.5pt, forget plot]
++\addplot [color=Green, line width=1.5pt, forget plot]
+   table[row sep=crcr]{%
+ 4.000400040004	11.3796631819105\\
+ 4.001400140014	11.3841742933527\\
+@@ -18060,7 +18069,7 @@
+ 7.999799979998	14.0627209856728\\
+ 8.000800080008	14.061515208249\\
+ };
+-\addplot [color=green, line width=1.5pt, forget plot]
++\addplot [color=Green, line width=1.5pt, forget plot]
+   table[row sep=crcr]{%
+ 8.000800080008	14.061515208249\\
+ 8.001800180018	14.0603110268285\\
+@@ -20072,14 +20081,20 @@
+ scale only axis,
+ xmin=0,
+ xmax=10,
+-xlabel style={font=\color{mycolor1}},
++xlabel style={font=\color{white!15!black}},
+ xlabel={Tiempo $[\unit{s}]$},
+ ymin=-4,
+ ymax=12,
+-ylabel style={font=\color{mycolor1}},
++ylabel style={font=\color{white!15!black}},
+ ylabel={$\rojo{\dot{\psi}}\ [\unit{deg/s}]$},
++y tick label style={
++  /pgf/number format/.cd,
++      fixed,
++      precision=2,
++  /tikz/.cd
++},
+ axis background/.style={fill=white},
+-title style={font=\bfseries\color{mycolor1}},
++title style={font=\bfseries\color{white!15!black}},
+ title={Velocidad angular de la bolita}
+ ]
+ \addplot [color=red, line width=1.5pt, forget plot]
+@@ -30102,17 +30117,23 @@
+ scale only axis,
+ xmin=0,
+ xmax=10,
+-xlabel style={font=\color{mycolor1}},
++xlabel style={font=\color{white!15!black}},
+ xlabel={Tiempo $[\unit{s}]$},
+ ymin=0,
+ ymax=160,
+-ylabel style={font=\color{mycolor1}},
++ylabel style={font=\color{white!15!black}},
+ ylabel={$\mora{\omega}\ [\unit{RPM}]$},
++y tick label style={
++  /pgf/number format/.cd,
++      fixed,
++      precision=2,
++  /tikz/.cd
++},
+ axis background/.style={fill=white},
+-title style={font=\bfseries\color{mycolor1}},
++title style={font=\bfseries\color{white!15!black}},
+ title={Velocidad angular del anillo}
+ ]
+-\addplot [color=mycolor2, line width=1.5pt, forget plot]
++\addplot [color=violet, line width=1.5pt, forget plot]
+   table[row sep=crcr]{%
+ 0	0\\
+ 0.001000100010001	0\\
+@@ -34116,7 +34137,7 @@
+ 3.999399939994	96.9157821363564\\
+ 4.000400040004	96.9532847701862\\
+ };
+-\addplot [color=mycolor2, line width=1.5pt, forget plot]
++\addplot [color=violet, line width=1.5pt, forget plot]
+   table[row sep=crcr]{%
+ 4.000400040004	96.9532847701862\\
+ 4.001400140014	96.9908036610279\\
+@@ -38120,7 +38141,7 @@
+ 7.999799979998	150.635359346859\\
+ 8.000800080008	150.634998938997\\
+ };
+-\addplot [color=mycolor2, line width=1.5pt, forget plot]
++\addplot [color=violet, line width=1.5pt, forget plot]
+   table[row sep=crcr]{%
+ 8.000800080008	150.634998938997\\
+ 8.001800180018	150.634619562979\\
+@@ -40124,4 +40145,4 @@
+ 10	150.405882495541\\
+ };
+ \end{axis}
+-\end{tikzpicture}%
+\ No newline at end of file
++\end{tikzpicture}%

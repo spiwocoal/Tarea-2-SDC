@@ -2,22 +2,22 @@
 
 \subsection{Desarrollo}
 
-Nos interesa entonces simular el sistema estudiado, con $k_{c} = 10\unit{m}$.
+Se quiere ahora simular el sistema estudiado, con $k_{c} = 10\unit{m}$.
 La referencia para la cual se simulará es,
 \begin{equation}
   \rojo{\psi_{d}}(t) = \rojo{\psi_{0}}\nara{k_{st}}\left(r(t-1) - r(t-5)\right) \mathbin{/} 4
   \label{eq:referencia}
 \end{equation}
 
-Entonces, utilizamos \textit{MATLAB} y, al igual que para la tarea anterior,
-nos servimos del comando \verb|lsim| para simular el sistema, luego de haber
+Entonces, se utilizó \textit{MATLAB} y, al igual que para la tarea anterior,
+se ocupó el comando \verb|lsim| para simular el sistema, luego de haber
 creado un objeto que represente al sistema, utilizando las matrices
-$\mathbf{A}, \mathbf{B}, \mathbf{C}$ del sistema, y el comando \verb|tf|.
+$\mathbf{A}, \mathbf{B}, \mathbf{C}$ del sistema y el comando \verb|tf|.
 
 \begin{figure}[ht]
   \centering
   \input{Diagramas/psi_b.tex}
-  \caption{Variables de estado del sistema con contolador integrador, marginalmente estable}
+  \caption{Referencia del sistema y la salida. Controlador proporcional.}
   \label{fig:psi-b}
 \end{figure}
 
@@ -27,20 +27,32 @@ la salida del sistema, y la \autoref{fig:estado-b} para las variables de estado.
 \begin{figure}[ht]
   \centering
   \input{Diagramas/estado_b.tex}
-  \caption{Variables de estado del sistema con contolador integrador, marginalmente estable}
+  \caption{Variables de estado del sistema. Controlador proporcional.}
   \label{fig:estado-b}
 \end{figure}
 
-\FloatBarrier
 \subsection{Comentarios}
 
+Se puede ver de la gráfica obtenida por simulación (\autoref{fig:psi-b}) que el
+valor de $\rojo{\psi_{m}}$, en estado estacionario converge a $\ang{15.93}$.
+Entonces, puesto que en el estado estacionario la referencia $\rojo{\psi_{d}}$
+se encuentra a $\rojo{\psi_{0}} = \ang{30}$, se verifica entonces lo obtenido en
+la pregunta \hyperref[pregunta-a]{\texttt{a)}}, donde se predijo que el error en
+estado estacionario para una entrada rampa generalizada
+$\rojo{\psi_{d}}(s) = \rojo{\psi_{0}}\nara{k_{st}}\mathbin{/}s$ sería de $\ang{14.07}$.
 
-\textbf{!AQUÍ COMENTARIOS NO OLVIDAR!}
+Además, se puede notar que conforme más tiempo pasa, las variables de estado todas
+convergen a un valor, el cual será su valor en estado estacionario. Esto ocurre
+puesto que la entrada del sistema, la referencia que se busca para $\rojo{\psi_{m}}$,
+se mantiene en un valor constante después de los $5\ \unit{s}$. Entonces, como la
+entrada no cambia, eventualmente las variables de estado del sistema convergerán
+a un valor constante, el cual será su valor de estado estacionario.
 
-Posibles Comentarios
-\begin{itemize}
-  \item Porqué las variables llegan a estado estacionario
-  \item Porqué hay oscilación
-  \item Es siempre la segunda variable de estado igual a 0
-  \item Cómo cambian los resultados para otro punto de operación
-\end{itemize}
+Otra característica de la salida que se observa es que esta cuenta con una
+oscilación, la cual va disminuyendo con el tiempo. Esto es un efecto del controlador
+utilizado, el cual debe ajustar la entrada al sistema $\rojo{\psi}\mathbin{/}\verd{v_{i}}(s)$
+dependiendo de la salida $\rojo{\psi}$ medida, y dependiendo de la ganancia que
+tenga el controlador va a existir un sobrepaso en la salida. El controlador luego
+va a ajustar para este sobrepaso, pero nuevamente tendrá sobrepaso, hasta que,
+cuando $t \to \infty$, esta oscilación disminuirá hasta que la salida tenga un
+valor constante.

@@ -1,0 +1,36 @@
+--- psi_orig.tex
++++ psi_new.tex
+@@ -4,8 +4,6 @@
+ %  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
+ %where you can also make suggestions and rate matlab2tikz.
+ %
+-\definecolor{mycolor1}{rgb}{0.12941,0.12941,0.12941}%
+-%
+ \begin{tikzpicture}
+ 
+ \begin{axis}[%
+@@ -15,14 +13,14 @@
+ scale only axis,
+ xmin=0,
+ xmax=10,
+-xlabel style={font=\color{mycolor1}},
++xlabel style={font=\color{white!15!black}},
+ xlabel={Tiempo $[\unit{s}]$},
+ ymin=0,
+ ymax=32,
+-ylabel style={font=\color{mycolor1}},
++ylabel style={font=\color{white!15!black}},
+ ylabel={$\rojo{\psi}\ [\unit{deg}]$},
+ axis background/.style={fill=white},
+-title style={font=\bfseries\color{mycolor1}},
++title style={font=\bfseries\color{white!15!black}},
+ title={Ángulo de referencia y la salida obtenida},
+ legend style={at={(0.03,0.97)}, anchor=north west, legend cell align=left, align=left}
+ ]
+@@ -20053,4 +20051,4 @@
+ \addlegendentry{Referencia $\rojo{\psi_{d}}$}
+ 
+ \end{axis}
+-\end{tikzpicture}%
+\ No newline at end of file
++\end{tikzpicture}%
