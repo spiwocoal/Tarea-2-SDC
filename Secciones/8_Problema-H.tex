@@ -1,7 +1,62 @@
 \section{Pregunta \texttt{h)}}\label{pregunta-h}
 \subsection{Desarrollo}
 
+Ahora bien nos piden repetir los apartados \hyperref[pregunta-c]{\texttt{c)}}, \hyperref[pregunta-d]{\texttt{d)} },\hyperref[pregunta-e]{\texttt{e)} },\hyperref[pregunta-f]{\texttt{f)} } y \hyperref[pregunta-g]{\texttt{g)}}
+
 \subsubsection{C} %después lo borramos
+Calculamos los polos y ceros de el lazo directo (L.D) 
+y el lazo cerrado (L.C.), por lo que primero encontramos las función de 
+transferencia de cada lazo tal que son las siguientes:
+
+\begin{itemize}
+    \item \textbf{L.D. :} Sabemos que es \( \frac{\mora{k_c}}{s}\nara{k_a} \frac{\rojo{\psi}(s)}{\verd{v_i}(s)}\nara{k_st} \) por lo que la función de transferencia es:
+    \begin{align*}
+        l(s)&= \frac{\mora{k_c}}{s}\nara{k_a}\frac{\nara{\nara{b_{0\omega}}}\left(\nara{b_{1\psi}}s + \nara{b_{0\psi}}\right)}
+        {\left(\nara{a_{1\omega}}s + \nara{a_{0\omega}}\right)\left(\nara{a_{2\psi}}s^{2} + \nara{a_{1\psi}}s + \nara{a_{0\psi}}\right)} \nara{k_st}\\
+        l(s)&= \frac{  \mora{k_c} \nara{k_a} \nara{\nara{b_{0\omega}}}\left(\nara{b_{1\psi}}s + \nara{b_{0\psi}}\right) \nara{k_st}  }
+        { s \left(\nara{a_{1\omega}}s + \nara{a_{0\omega}}\right)\left(\nara{a_{2\psi}}s^{2} + \nara{a_{1\psi}}s + \nara{a_{0\psi}} \right)   } 
+    \end{align*}
+    Ahora bien calculamos los polos y ceros con \textit{MATLAB} con el comando \verb|pzmap| y le añadimos al integrador al \(\mora{k_c}\), esto se puede ver en el \autoref{lst:Cod_problema_Hc}: dando los siguientes resultados:
+
+\begin{multicols}{2}
+    \textbf{Polos}
+    \begin{itemize}
+        \item \(P_0 = 0 \)
+        \item \(P_{1,2} = -0.6597 \pm 8.8564i\) 
+        \item \(P_3 = -1.5152 \)
+    \end{itemize}
+    \columnbreak
+    \textbf{Cero}
+    \begin{itemize}
+        \item \(Z_0 = -4.4609\)
+    \end{itemize}
+  \end{multicols}
+
+
+
+    \item \textbf{L.C. :} El lazo cerrado lo sacamos simbólicamente del item \hyperref[pregunta-a]{\texttt{a)} } y luego la simplificamos:
+    \begin{align*}
+        &h(s) = \dfrac{  \frac{\mora{k_c}}{s} \nara{k_a} \frac{\nara{\nara{b_{0\omega}}}\left(\nara{b_{1\psi}}s + \nara{b_{0\psi}}\right)}
+        {\left(\nara{a_{1\omega}}s + \nara{a_{0\omega}}\right)\left(\nara{a_{2\psi}}s^{2} + \nara{a_{1\psi}}s + \nara{a_{0\psi}}\right)}   }{  1+  \frac{\mora{k_c}}{s} \nara{k_a} \frac{\nara{\nara{b_{0\omega}}}\left(\nara{b_{1\psi}}s + \nara{b_{0\psi}}\right)}
+        {\left(\nara{a_{1\omega}}s + \nara{a_{0\omega}}\right)\left(\nara{a_{2\psi}}s^{2} + \nara{a_{1\psi}}s + \nara{a_{0\psi}}\right)}\nara{k_{st}}  } \\
+        &h(s) = \dfrac{     \mora{k_c} \nara{k_a}    \nara{\nara{b_{0\omega}}}\left(\nara{b_{1\psi}}s + \nara{b_{0\psi}}\right)    }{    s \left(\nara{a_{1\omega}}s + \nara{a_{0\omega}}\right)\left(\nara{a_{2\psi}}s^{2} + \nara{a_{1\psi}}s + \nara{a_{0\psi}}\right)    + \mora{k_c} \nara{k_a}     \nara{\nara{b_{0\omega}}}\left(\nara{b_{1\psi}}s + \nara{b_{0\psi}}\right)   
+       \nara{k_{st}}   }
+    \end{align*}
+    Al igual que en el L.D, el mismo código (\autoref{lst:Cod_problema_Hc}) nos entrega los polos y ceros de el L.C., estos serian los siguientes:
+    \begin{multicols}{2}
+        \textbf{Polos}
+        \begin{itemize}
+            \item \(P_{0,1} = -0.4593 \pm 8.7836i\) 
+            \item \(P_{2,3} = -0.9580 \pm 0.9117i\) 
+        \end{itemize}
+        \columnbreak
+        \textbf{Cero}
+        \begin{itemize}
+            \item \(Z_0 = -4.4609\)
+        \end{itemize}
+      \end{multicols}
+\end{itemize}
+
 
 \FloatBarrier
 \subsubsection{D}%después lo borramos
