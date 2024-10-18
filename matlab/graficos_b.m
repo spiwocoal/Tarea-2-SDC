@@ -19,13 +19,11 @@ f2 = figure(2);
 subplot(2,2,1);
 plot(t, w, 'b', 'LineWidth', 1.5);
 title("Entrada al actuador");
-% xlabel("Tiempo $[\unit{s}]$");
 ylabel("$\azul{w}$");
 
 subplot(2,2,2);
 plot(t, v_i, 'g', 'LineWidth', 1.5);
 title("Voltaje del motor");
-% xlabel("Tiempo $[\unit{s}]$");
 ylabel("$\verd{v_{i}}\ [\unit{V}]$");
 
 subplot(2,2,3);

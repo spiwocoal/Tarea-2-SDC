@@ -342,4 +342,5 @@ octave-workspace
 
 ## Otras cosas
 matlab/*.tex
+matlab/data
 *.bkp
