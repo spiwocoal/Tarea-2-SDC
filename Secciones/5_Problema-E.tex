@@ -1,22 +1,83 @@
 \section{Pregunta \texttt{e)}}\label{pregunta-e}
 \subsection{Desarrollo}
 
+Se quiere ahora determinar los valores de $\mora{k_{c}}$ para los cuales el
+sistema se comporta de primer y segundo orden estable. Se sabe que para que
+esto ocurra, la razón entre las partes reales de las raíces debe ser igual a
+$10$.
 
+Se empieza entonces por obtener la función de transferencia de lazo,
+\begin{align}
+    l(s) &= \nara{k_{st}k_{a}} \frac{\rojo{\psi}(s)}{\verd{v_{i}}(s)} \\
+    l(s) &= \frac{3033s + 13531}{s^{3} + 2.83s^{2} + 80.87s + 119.5}
+\end{align}
 
+Luego, para obtener los valores de las raíces en L.C, se busca resolver la
+ecuación:
+\begin{gather}
+    1 + \mora{k_{c}}l(s) = 0 \\
+    1 + \mora{k_{c}}\frac{3033s + 13531}{s^{3} + 2.83s^{2} + 80.87s + 119.5} = 0
+\end{gather}
 
+Luego, sean $\lambda_{i}$ los polos del sistema, entonces se puede reescribir
+esta expresión como,
+\begin{equation}
+    (s - \lambda_{0})(s - \lambda_{1})(s - \lambda_{2}) = 0
+\end{equation}
+
+Donde $\lambda_{i}$ dependerá del valor de $\mora{k_{c}}$. Entonces, para que
+el sistema se comporte como uno de primer o segundo orden, se necesita que
+$\mathfrak{Re}(\lambda_{0}) = 10\mathfrak{Re}(\lambda{1})$. Se busca entonces
+las soluciones para esta ecuación, y para esto la capacidad de cálculo simbólico
+de \textit{MATLAB} fue utilizada, como se observa en el \autoref{lst:preg-e}.
+
+Este código otorga que el valor de $\mora{k_{c}}$ para el cual el sistema se
+comporta como de primer orden es $\mora{k_{c}} = -0.0083$, mientras que para
+que este se comporte como de segundo orden es $\mora{k_{c}} = 0.0108$.
+
+\begin{figure}[ht]
+  \centering
+  \input{Diagramas/lgr_e.tex}
+  \caption{Lugar geométrico de las raíces para el sistema con controlador proporcional.}
+  \label{fig:lgr-e}
+\end{figure}
+
+Se grafica nuevamente el L.G.R. y se observa entonces que para las ganancias dadas,
+se tienen los siguientes polos:
+\begin{multicols}{2}
+    Polos para $\mora{k_{c}} = -8.3\unit{m}$
+    \begin{itemize}
+        \item $\lambda_{0} = -1.3498 + 7.3193j$
+        \item $\lambda_{1} = -0.1350$
+        \item $\lambda_{2} = -1.3498 - 7.3193j$
+    \end{itemize}
+
+    Polos para $\mora{k_{c}} = 10.8\unit{m}$
+    \begin{itemize}
+        \item $\lambda_{0} = -2.3622$
+        \item $\lambda_{1} = -0.2362 +10.6078j$
+        \item $\lambda_{2} = -0.2362 -10.6078j$
+    \end{itemize}
+\end{multicols}
 
 \FloatBarrier
 \subsection{Comentarios}
 
+De lo obtenido se puede verificar entonces que para ambos casos, se cumple que
+$\mathfrak{Re}(\lambda_{0}) = 10\mathfrak{Re}(\lambda{1})$. Además, cuando
+$\mora{k_{c}} = -8.3\unit{m}$, los polos complejos conjugados son aquellos que
+tendrán bajo aporte en la dinámica del sistema, haciendo bien de este caso aquel
+que se comporta como un sistema de primer orden, con polo dominante $\lambda_{1}$,
+mientras que cuando $\mora{k_{c}} = 10.8\unit{m}$, los polos dominantes son
+$\lambda_{1,2}$, y entonces $\lambda{0}$ no tendrá mayor aporte a la dinámica, por
+lo que el sistema se comporta como uno de segundo orden.
 
-\textbf{!AQUÍ COMENTARIOS NO OLVIDAR!}
-Posibles Comentarios
-\begin{itemize}
-    \item Qué parámetro define la ganancia
-    \item Cuál polo predomina si es representable en 1er orden
-    \item La representación de 1er orden es buena para bajas o altas frecuencias en la entrada
-    \item Hay un único valor de ganancia que logra esta simplificación
-    \item Siempre es posible que un sistema de 2do orden se pueda comportar como de 1er orden
-    \item Siempre es posible que un sistema de orden n > 2 se pueda comportar como de 1er orden
-    \item Cómo cambian los resultados para otro punto de operación
-\end{itemize}
+Es importante mencionar además que esos valores de $\mora{k_{c}}$ no son los
+únicos que permiten hacer esta simplificación, y que en realidad existe una
+infinidad de ellos, ya que con tal que exista un polo cuya parte real sea mucho
+mayor que la parte real de el resto, entonces el sistema puede comportarse como
+uno de menor orden. Para este caso en específico, todas aquellas ganancias que
+permiten que la condición $\mathfrak{Re}(\lambda_{0}) \geq 10\mathfrak{Re}(\lambda{1})$
+sea verdadera, permiten que el sistema tenga esta simplificación. Así, las
+ganancias determinadas son solamente los menores valores para los cuales esto
+se permite.
