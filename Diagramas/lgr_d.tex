@@ -23,7 +23,7 @@ every y tick/.append style={white!15!black},
 ymin=-30,
 ymax=30,
 axis background/.style={fill=white},
-legend pos=north west
+legend pos=outer north east
 ]
 \addplot [color=gray, dotted, forget plot]
   table[]{Diagramas/data/lgr_c_neg-1.tsv};
@@ -48,5 +48,19 @@ legend pos=north west
 
 \addplot[only marks, mark=o, mark size=2.0pt, thick, draw=Fuchsia, forget plot] table[]{Diagramas/data/lgr_c_pos-6.tsv};
 \addplot[only marks, mark=x, mark size=2.5pt, thick, draw=Fuchsia, forget plot] table[]{Diagramas/data/lgr_c_pos-7.tsv};
+
+\addplot[only marks, mark=square, mark size=2.0pt, thick, draw=Gray] table[row sep=crcr]{%
+  -0.6597 8.8564\\
+  -0.6597 -8.8564\\
+  -1.5152 0\\
+  };
+  \addlegendentry{Polos en L.D. para $\mora{k_{c}}=10\unit{m}$}
+
+\addplot[only marks, mark=square, mark size=2.0pt, thick, draw=Lavender] table[row sep=crcr]{%
+  -0.2591 10.485\\
+  -0.2591 -10.485\\
+  -2.3164 0\\
+  };
+  \addlegendentry{Polos en L.C. para $\mora{k_{c}}=10\unit{m}$}
 \end{axis}
 \end{tikzpicture}%

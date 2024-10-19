@@ -1,8 +1,6 @@
 matrices;
 psi_0 = 30 * pi/180;
 
-C = [1 0 0];
-
 %% Ganancias del sistema
 k_st = 180/pi; k_a = 100; k_c = 10e-3;
 

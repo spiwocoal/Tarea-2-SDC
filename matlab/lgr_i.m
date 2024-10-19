@@ -1,6 +1,5 @@
 matrices;
 T = 200e-3;
-C = [1 0 0];
 set(groot,'defaultLineLineWidth',1.5)
 
 %% Ganancias del sistema

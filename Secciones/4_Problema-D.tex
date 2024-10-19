@@ -2,28 +2,46 @@
 
 \subsection{Desarrollo}
 
-\textbf{FALTA AGREGAR EL LUGAR DE LOS POLOS Y CEROS LAZO CERRADO}
+Se desea ahora graficar el lugar geométrico de las raíces, o L.G.R. Para esto,
+se hizo uso de \textit{MATLAB} y, al igual que como se lleva haciendo hasta
+ahora, de la representación del sistema que se obtiene utilizando el comando
+\verb|ss|. El \textit{Control Systems Toolbox} incluye el comando \verb|rlocus|
+el cual permite obtener la gráfica del L.G.R. de un sistema dado. Entonces,
+se utiliza este comando para obtener una gráfica, para valores de $\mora{k_{c}}$
+entre $0$ y $1$, y luego entre $-1$ y $0$ (\autoref{lst:lgr-d}).
 
 \begin{figure}[ht]
   \centering
-  \input{Diagramas/lgr_c.tex}
-  \caption{Lugar geométrico de las raíces para el sistema. Controlador proporcional.}
-  \label{fig:lgr-c}
+  \input{Diagramas/lgr_d.tex}
+  \caption{Lugar geométrico de las raíces para el sistema con controlador proporcional.}
+  \label{fig:lgr-d}
 \end{figure}
 
+Estos rangos se determinaron observando el L.G.R. generado sin entregarle valores
+de ganancias al comando, y observando cuál sería un rango útil.
 
-\FloatBarrier
+Igualmente, se graficó sobre el L.G.R. los polos del sistema en L.D. y L.C. para
+una ganancia de controlador $\mora{k_{c}} = 10\unit{m}$. Los ceros de estos no
+fueron graficados puesto que estos no dependen del valor que toma $\mora{k_{c}}$,
+y por ende serían los mismos ceros ya presentes en la gráfica.
+
 \subsection{Comentarios}
 
+Se puede observar del L.G.R. obtenido (\autoref{fig:lgr-d}) que para el sistema
+estudiado, el L.G.R. tiene $3$ ramas, esto debido a que el sistema es de tercer
+orden y como consecuencia tendrá $3$ polos.
 
-\textbf{!AQUÍ COMENTARIOS NO OLVIDAR!}
-Posibles Comentarios
-\begin{itemize}
-    \item Cuántas ramas tiene el L.G.R.
-    \item Porqué hay ramas que se van al infinito
-    \item Porqué es simétrico el L.G.R. respecto del eje x
-    \item Porqué no es simétrico el L.G.R. respecto del eje y
-    \item Hay un rango de ganancia para el cual el sistema es inestable
-    \item Cómo cambian los resultados para otro punto de operación
-    \item Qué parámetro no influye en el L.G.R.
-\end{itemize}
+Otra característica de este que podemos observar es que el L.G.R. es simétrico
+respecto al eje real, o eje $x$. Esta es una consecuencia de que las ramas del
+L.G.R. representan la posición de los polos de un sistema. Entonces, cuando este
+cuente con polos complejos, estos siempre vienen en pares conjugados. Entonces,
+la posición de un polo se reflejará respecto al eje $x$, dando lugar a la simetría
+observada.
+
+Se observa además que existe un rango de ganancias para el cual el sistema es
+inestable, lo cual se muestra como ramas que cruzan el eje imaginario, pasando
+así al semi-plano derecho, es decir, los polos toman valores con parte real
+positiva. Para este caso en concreto, esto ocurre cuando $\mora{k_{c}}$ toma
+valores inferiores a $\approx -0.01$, como se puede observar en la rama azul,
+o bien, cuando toma valores superiores a $\approx 0.02$, como se observa en las
+ramas verdes y rojas.
