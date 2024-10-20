@@ -14,7 +14,7 @@ LaD = (1/st) * k_st * k_a * sys; % Lazo Directo
 [num,den] = tfdata(LaD,'v');
 LaD_syms = poly2sym(num,s)/poly2sym(den,s);
 
-eq2 = 1 + kc * LaD_syms;
+eq1 = 1 + kc * LaD_syms;
 polos = solve(eq2 == 0, s, MaxDegree=4);
 
 eq2 = real(polos(1)) == 10 * real(polos(3));

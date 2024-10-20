@@ -2,7 +2,6 @@ matrices;
 
 %% Ganancias del sistema
 k_st = 180/pi; k_a = 100; k_c = 10e-3;
-k_c = 0.025287;
 
 %% Sistema
 s = tf("s");
