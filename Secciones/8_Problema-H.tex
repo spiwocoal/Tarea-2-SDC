@@ -1,76 +1,112 @@
 \section{Pregunta \texttt{h)}}\label{pregunta-h}
 \subsection{Desarrollo}
 
-Ahora bien nos piden repetir los apartados \hyperref[pregunta-c]{\texttt{c)}}, \hyperref[pregunta-d]{\texttt{d)} },\hyperref[pregunta-e]{\texttt{e)} },\hyperref[pregunta-f]{\texttt{f)} } y \hyperref[pregunta-g]{\texttt{g)}}
+A continuación, se pide repetir lo realizado en los apartados \hyperref[pregunta-c]{\texttt{c)}},
+\hyperref[pregunta-d]{\texttt{d)}}, \hyperref[pregunta-e]{\texttt{e)}},
+\hyperref[pregunta-f]{\texttt{f)}} y \hyperref[pregunta-g]{\texttt{g)}}, para un
+controlador integrador con función de transferencia $h_{c}(s) = \mora{k_{c}} \mathbin{/} s$.
 
-\subsubsection{C} %después lo borramos
-Calculamos los polos y ceros de el lazo directo (L.D) 
-y el lazo cerrado (L.C.), por lo que primero encontramos las función de 
-transferencia de cada lazo tal que son las siguientes:
+Entonces, para obtener los polos y ceros en L.D. y en L.C. se empieza por determinar
+las F. de T. que definen este nuevo sistema. Para el lazo directo entonces, se
+tiene,
+\begin{gather}
+    l(s) = \frac{\mora{k_{c}}}{s} \nara{k_{st}k_{a}} \frac{\rojo{\psi(s)}}{\verd{v_{i}(s)}} \\
+    l(s) = \frac{\mora{k_c} \nara{k_{a}k_{st}} \nara{b_{0\omega}}\left(\nara{b_{1\psi}}s
+            + \nara{b_{0\psi}}\right)}
+        {s \left(\nara{a_{1\omega}}s + \nara{a_{0\omega}}\right)\left(\nara{a_{2\psi}}s^{2}
+            + \nara{a_{1\psi}}s + \nara{a_{0\psi}} \right)} 
+\end{gather}
 
-\begin{itemize}
-    \item \textbf{L.D. :} Sabemos que es \( \frac{\mora{k_c}}{s}\nara{k_a} \frac{\rojo{\psi}(s)}{\verd{v_i}(s)}\nara{k_st} \) por lo que la función de transferencia es:
-    \begin{align*}
-        l(s)&= \frac{\mora{k_c}}{s}\nara{k_a}\frac{\nara{\nara{b_{0\omega}}}\left(\nara{b_{1\psi}}s + \nara{b_{0\psi}}\right)}
-        {\left(\nara{a_{1\omega}}s + \nara{a_{0\omega}}\right)\left(\nara{a_{2\psi}}s^{2} + \nara{a_{1\psi}}s + \nara{a_{0\psi}}\right)} \nara{k_st}\\
-        l(s)&= \frac{  \mora{k_c} \nara{k_a} \nara{\nara{b_{0\omega}}}\left(\nara{b_{1\psi}}s + \nara{b_{0\psi}}\right) \nara{k_st}  }
-        { s \left(\nara{a_{1\omega}}s + \nara{a_{0\omega}}\right)\left(\nara{a_{2\psi}}s^{2} + \nara{a_{1\psi}}s + \nara{a_{0\psi}} \right)   } 
-    \end{align*}
-    Ahora bien calculamos los polos y ceros con \textit{MATLAB} con el comando \verb|pzmap| y le añadimos al integrador al \(\mora{k_c}\), esto se puede ver en el \autoref{lst:Cod_problema_Hc}: dando los siguientes resultados:
+Luego, se utiliza \textit{MATLAB} para determinar los polos y ceros, y se obtiene:
 
 \begin{multicols}{2}
     \textbf{Polos}
     \begin{itemize}
         \item \(P_0 = 0 \)
-        \item \(P_{1,2} = -0.6597 \pm 8.8564i\) 
+        \item \(P_{1,2} = -0.6597 \pm 8.8564j\) 
         \item \(P_3 = -1.5152 \)
     \end{itemize}
+
     \columnbreak
-    \textbf{Cero}
+
+    \textbf{Ceros}
     \begin{itemize}
         \item \(Z_0 = -4.4609\)
     \end{itemize}
-  \end{multicols}
+\end{multicols}
 
+A continuación, para el lazo cerrado, la función de transferencia es,
+\begin{gather}
+    h(s) = \frac{h_{c}(s)\nara{k_{a}}\frac{\rojo{\psi(s)}}{\verd{v_{i}(s)}}}
+        {1 + h_{c}(s)\nara{k_{st}k_{a}}\frac{\rojo{\psi(s)}}{\verd{v_{i}(s)}}} \\
+    h(s) = \frac{\mora{k_c}\nara{k_a}\nara{b_{0\omega}}\left(\nara{b_{1\psi}}s
+            + \nara{b_{0\psi}}\right)}
+        {s\left(\nara{a_{1\omega}}s + \nara{a_{0\omega}}\right)\left(\nara{a_{2\psi}}s^{2}
+            + \nara{a_{1\psi}}s + \nara{a_{0\psi}}\right) + \mora{k_c}\nara{k_{a}k_{st}b_{0\omega}}
+            \left(\nara{b_{1\psi}}s + \nara{b_{0\psi}}\right)}
+\end{gather}
 
+Resolviendo con \textit{MATLAB}, se obtiene el valor de los polos y ceros de esta F. de T:
 
-    \item \textbf{L.C. :} El lazo cerrado lo sacamos simbólicamente del item \hyperref[pregunta-a]{\texttt{a)} } y luego la simplificamos:
-    \begin{align*}
-        &h(s) = \dfrac{  \frac{\mora{k_c}}{s} \nara{k_a} \frac{\nara{\nara{b_{0\omega}}}\left(\nara{b_{1\psi}}s + \nara{b_{0\psi}}\right)}
-        {\left(\nara{a_{1\omega}}s + \nara{a_{0\omega}}\right)\left(\nara{a_{2\psi}}s^{2} + \nara{a_{1\psi}}s + \nara{a_{0\psi}}\right)}   }{  1+  \frac{\mora{k_c}}{s} \nara{k_a} \frac{\nara{\nara{b_{0\omega}}}\left(\nara{b_{1\psi}}s + \nara{b_{0\psi}}\right)}
-        {\left(\nara{a_{1\omega}}s + \nara{a_{0\omega}}\right)\left(\nara{a_{2\psi}}s^{2} + \nara{a_{1\psi}}s + \nara{a_{0\psi}}\right)}\nara{k_{st}}  } \\
-        &h(s) = \dfrac{     \mora{k_c} \nara{k_a}    \nara{\nara{b_{0\omega}}}\left(\nara{b_{1\psi}}s + \nara{b_{0\psi}}\right)    }{    s \left(\nara{a_{1\omega}}s + \nara{a_{0\omega}}\right)\left(\nara{a_{2\psi}}s^{2} + \nara{a_{1\psi}}s + \nara{a_{0\psi}}\right)    + \mora{k_c} \nara{k_a}     \nara{\nara{b_{0\omega}}}\left(\nara{b_{1\psi}}s + \nara{b_{0\psi}}\right)   
-       \nara{k_{st}}   }
-    \end{align*}
-    Al igual que en el L.D, el mismo código (\autoref{lst:Cod_problema_Hc}) nos entrega los polos y ceros de el L.C., estos serian los siguientes:
-    \begin{multicols}{2}
-        \textbf{Polos}
-        \begin{itemize}
-            \item \(P_{0,1} = -0.4593 \pm 8.7836i\) 
-            \item \(P_{2,3} = -0.9580 \pm 0.9117i\) 
-        \end{itemize}
-        \columnbreak
-        \textbf{Cero}
-        \begin{itemize}
-            \item \(Z_0 = -4.4609\)
-        \end{itemize}
-      \end{multicols}
-\end{itemize}
+\begin{multicols}{2}
+    \textbf{Polos}
+    \begin{itemize}
+        \item \(P_{0,1} = -0.4593 \pm 8.7836j\)
+        \item \(P_{2,3} = -0.9580 \pm 0.9117j\)
+    \end{itemize}
 
+    \columnbreak
 
-
-\FloatBarrier
-\subsubsection{D}%después lo borramos
+    \textbf{Ceros}
+    \begin{itemize}
+        \item \(Z_0 = -4.4609\)
+    \end{itemize}
+\end{multicols}
 
 \begin{figure}[ht]
     \centering
     \input{Diagramas/lgr_h.tex}
-    \caption{Lugar geométrico de las raíces para el sistema. Controlador proporcional.}
+    \caption{Lugar geométrico de las raíces para el sistema con controlador integrador.}
     \label{fig:lgr-h}
-  \end{figure}
-  
-\FloatBarrier
-\subsubsection{E}%después lo borramos
+\end{figure}
+
+Luego, deseamos graficar el L.G.R. del sistema realimentado. Entonces, se repite
+el procedimiento realizado en \hyperref[pregunta-d]{\texttt{d)}}, mediante el
+comando \verb|rlocus|. Entonces, el lugar geométrico de las raíces para el sistema
+estudiado con controlador integrador es aquel de la \autoref{fig:lgr-h}.
+
+A continuación, se buscan valores de $\mora{k_{c}}$ para los cuales el sistema se
+comporta como de primer y segundo orden estable. Entonces, se quiere que la razón
+entre las partes reales de las raíces del sistema sea igual a $10$. Repitiendo
+el procedimiento utilizado anteriormente para lograr esto, con F. de T. de lazo
+\begin{equation}
+    l(s) = \frac{3033s + 13531}{s\left(s^{3} + 2.83s^{2} + 80.87s + 119.5\right)}
+\end{equation}
+
+Las raíces del sistema en L.C. están entonces dadas por
+\begin{equation}
+    1 + \mora{k_{c}}\frac{3033s + 13531}{s\left(s^{3} + 2.83s^{2} + 80.87s + 119.5\right)} = 0
+\end{equation}
+
+Así, se utiliza \textit{MATLAB} para obtener los valores de $\mora{k_{c}}$ que
+permiten que $\mathfrak{Re}(\lambda_{0}) = 10\mathfrak{Re}(\lambda_{1})$, siendo
+$\lambda_{0}, \lambda_{1}$ dos raíces del sistema. El valor encontrado es entonces
+que, para que el sistema se comporte como uno de segundo orden, el valor de
+$\mora{k_{c}}$ debe ser:
+\begin{equation}
+    \boxed{\mora{k_{c}} = 0.0253}
+\end{equation}
+
+Se grafica nuevamente el L.G.R. y se observa entonces que para las ganancias dadas,
+se tienen los siguientes polos:
+    \begin{itemize}
+        \item $\lambda_{0,1} = -1.2885 \pm 1.6913j$
+        \item $\lambda_{2,3} = -0.1288 \pm 8.6988j$
+    \end{itemize}
+
+Se observa que no hay valor negativo de $\mora{k_{c}}$ para el cual sea posible
+reducir el orden del sistema, manteniendo estabilidad puesto que para ganancias
+negativas, el sistema siempre tendrá un polo en el S.P.D.
 
 \FloatBarrier
 \subsubsection{F}%después lo borramos

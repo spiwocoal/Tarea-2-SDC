@@ -22,7 +22,8 @@ every y tick label/.append style={font=\color{white!15!black}},
 every y tick/.append style={white!15!black},
 ymin=-20,
 ymax=20,
-axis background/.style={fill=white}
+axis background/.style={fill=white},
+legend pos=outer north east
 ]
 \addplot [color=gray, dotted, forget plot]
   table[]{Diagramas/data/lgr_h_neg-1.tsv};
@@ -67,5 +68,29 @@ axis background/.style={fill=white}
 
 \addplot[only marks, mark=o, mark size=2.0pt, thick, draw=Fuchsia, forget plot] table[]{Diagramas/data/lgr_h_neg-11.tsv};
 \addplot[only marks, mark=x, mark size=2.5pt, thick, draw=Fuchsia, forget plot] table[]{Diagramas/data/lgr_h_neg-12.tsv};
+
+\addplot[only marks, mark=square, mark size=2.0pt, thick, draw=Gray] table[row sep=crcr]{%
+  0 0\\
+  -0.6597 8.8564\\
+  -0.6597 -8.8564\\
+  -1.5152 0\\
+  };
+  \addlegendentry{Polos en L.D. para $\mora{k_{c}}=10\unit{m}$}
+
+\addplot[only marks, mark=square, mark size=2.0pt, thick, draw=Lavender] table[row sep=crcr]{%
+  -0.5493 8.7836\\
+  -0.5493 -8.7836\\
+  -0.9580 0.9117\\
+  -0.9580 -0.9117\\
+  };
+  \addlegendentry{Polos en L.C. para $\mora{k_{c}}=10\unit{m}$}
+
+\addplot[only marks, mark=square, mark size=2.0pt, thick, draw=MidnightBlue] table[row sep=crcr]{%
+  -1.2885  1.6913\\
+  -1.2885 -1.6913\\
+  -0.1288  8.6988\\
+  -0.1288 -8.6988\\
+  };
+  \addlegendentry{Polos en L.C. para $\mora{k_{c}}=25.3\unit{m}$}
 \end{axis}
 \end{tikzpicture}%

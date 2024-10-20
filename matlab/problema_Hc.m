@@ -1,24 +1,20 @@
 matrices;
 
-C = [1 0 0];
-
+%% Ganancias del sistema
 k_st = 180/pi; k_a = 100; k_c = 10e-3;
+k_c = 0.025287;
 
-cnt = tf([k_c],[1 0]); % Controlador con integrador
+%% Sistema
+s = tf("s");
+cnt = k_c/s; % Controlador con integrador
 sys = ss(A, B, C, 0);
+LaD1 = cnt * k_a * sys * k_st; % Lazo Directo
+LaD2 = cnt * k_a * sys;
+LaC = feedback(LaD2, k_st);  % Lazo Cerrado
 
-LaD = cnt * k_a * sys * k_st; % Lazo Directo
-aux_LaD = cnt * k_a * sys; 
-% feedback(sys1, sys2) calcula sys1/(1 + sys1*sys2)
-LaC = feedback(aux_LaD, k_st);  % Lazo Cerrado
-
-% Pasamos a Función de Transferencia
-FdT_LaD = tf(LaD);  % FdeT Lazo Directo
-Fdt_LaC = tf(LaC);  % FdeT Lazo Cerrado
-
-% polos y ceros 
-[p_LaD, z_LaD] = pzmap(FdT_LaD);  % Polos y ceros del Lazo Directo
-[p_LaC, z_LaC] = pzmap(Fdt_LaC);  % Polos y ceros del Lazo Cerrado
+%% Determinacion polos y ceros
+[p_LaD, z_LaD] = pzmap(LaD1); % Lazo Directo
+[p_LaC, z_LaC] = pzmap(LaC);  % Lazo Cerrado
 disp('Polos del L.D:');
 disp(p_LaD);
 disp('Polos del L.C:');
