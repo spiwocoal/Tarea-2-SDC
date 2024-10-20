@@ -6,9 +6,11 @@ y el lazo cerrado (L.C.), por lo que primero encontramos las función de
 transferencia de cada lazo tal que son las siguientes:
 
 \begin{itemize}
-    \item \textbf{L.D. :} Sabemos que es \( \nara{k_c k_a} \frac{\rojo{\psi}(s)}{\verd{v_i}(s)}\nara{k_st} \) por lo que la función de transferencia es:
+
+
+    \item \textbf{L.D. :} Sabemos que es \( \mora{k_c} \nara{ k_a} \frac{\rojo{\psi}(s)}{\verd{v_i}(s)}\nara{k_st} \) por lo que la función de transferencia es:
     \begin{equation}
-        l(s)= \nara{k_ck_a} \frac{\nara{\nara{b_{0\omega}}}\left(\nara{b_{1\psi}}s + \nara{b_{0\psi}}\right)}
+        l(s)= \mora{k_c} \nara{k_a} \frac{\nara{\nara{b_{0\omega}}}\left(\nara{b_{1\psi}}s + \nara{b_{0\psi}}\right)}
         {\left(\nara{a_{1\omega}}s + \nara{a_{0\omega}}\right)\left(\nara{a_{2\psi}}s^{2} + \nara{a_{1\psi}}s + \nara{a_{0\psi}}\right)} \nara{k_st}
     \end{equation}
     Ahora bien calculamos los polos y ceros con \textit{MATLAB} con el comando \verb|pzmap|, esto se puede ver en el \autoref{lst:Cod_problema_C}: dando los siguientes resultados:
@@ -28,10 +30,10 @@ transferencia de cada lazo tal que son las siguientes:
 
     \item \textbf{L.C. :} El lazo cerrado lo sacamos simbólicamente del item \hyperref[pregunta-a]{\texttt{a)} } y luego la simplificamos:
     \begin{align*}
-        &h(s) = \dfrac{\nara{k_ck_a} \frac{\nara{\nara{b_{0\omega}}}\left(\nara{b_{1\psi}}s + \nara{b_{0\psi}}\right)}
-        {\left(\nara{a_{1\omega}}s + \nara{a_{0\omega}}\right)\left(\nara{a_{2\psi}}s^{2} + \nara{a_{1\psi}}s + \nara{a_{0\psi}}\right)}}{1+\nara{k_ck_a} \frac{\nara{\nara{b_{0\omega}}}\left(\nara{b_{1\psi}}s + \nara{b_{0\psi}}\right)}
+        &h(s) = \dfrac{\mora{k_c} \nara{k_a} \frac{\nara{\nara{b_{0\omega}}}\left(\nara{b_{1\psi}}s + \nara{b_{0\psi}}\right)}
+        {\left(\nara{a_{1\omega}}s + \nara{a_{0\omega}}\right)\left(\nara{a_{2\psi}}s^{2} + \nara{a_{1\psi}}s + \nara{a_{0\psi}}\right)}}{1+\mora{k_c} \nara{k_a} \frac{\nara{\nara{b_{0\omega}}}\left(\nara{b_{1\psi}}s + \nara{b_{0\psi}}\right)}
         {\left(\nara{a_{1\omega}}s + \nara{a_{0\omega}}\right)\left(\nara{a_{2\psi}}s^{2} + \nara{a_{1\psi}}s + \nara{a_{0\psi}}\right)}\nara{k_{st}}} \\
-        &h(s) = \dfrac{     \nara{k_ck_a}    \nara{\nara{b_{0\omega}}}\left(\nara{b_{1\psi}}s + \nara{b_{0\psi}}\right) }  {     \left(\nara{a_{1\omega}}s + \nara{a_{0\omega}}\right)\left(\nara{a_{2\psi}}s^{2} + \nara{a_{1\psi}}s + \nara{a_{0\psi}}\right)    + \nara{k_ck_a}     \nara{\nara{b_{0\omega}}}\left(\nara{b_{1\psi}}s + \nara{b_{0\psi}}\right)   
+        &h(s) = \dfrac{     \mora{k_c} \nara{k_a}    \nara{\nara{b_{0\omega}}}\left(\nara{b_{1\psi}}s + \nara{b_{0\psi}}\right) }  {     \left(\nara{a_{1\omega}}s + \nara{a_{0\omega}}\right)\left(\nara{a_{2\psi}}s^{2} + \nara{a_{1\psi}}s + \nara{a_{0\psi}}\right)    + \mora{k_c} \nara{k_a}     \nara{\nara{b_{0\omega}}}\left(\nara{b_{1\psi}}s + \nara{b_{0\psi}}\right)   
        \nara{k_{st}}}
     \end{align*}
     Al igual que en el L.D, el mismo código (\autoref{lst:Cod_problema_C}) nos entrega los polos y ceros de el L.C., estos serian los siguientes:
@@ -59,7 +61,7 @@ transferencia de cada lazo tal que son las siguientes:
 
 Observamos que al cerrar el lazo, los polos complejos conjugados se desplazan hacia la derecha en el plano complejo (menos negativos) y aumentan en frecuencia imaginaria. Esto indica que el sistema en lazo cerrado tiene una respuesta más rápida pero menos amortiguada en comparación con el lazo directo.
 
-Ademas en ambos casos el cero es \(Z= -4.4609\), esto nos dice que el cero del sistema en solo se ve afectado por la planta y no se ve afectado por ninguna de las variables de del lazo ni por el \(\nara{K_c}\) en este caso específico.
+Ademas en ambos casos el cero es \(Z= -4.4609\), esto nos dice que el cero del sistema en solo se ve afectado por la planta y no se ve afectado por ninguna de las variables de del lazo ni por el \(\mora{k_c}\) en este caso específico.
 
 Ahora bien, vemos que la ganancia del controlador \( k_c \) afecta significativamente la ubicación de los polos en el lazo cerrado. Al modificar \( k_c \), influimos en la realimentación del sistema, lo que altera la dinámica y, por ende, la posición de los polos en el plano complejo. Esto es fundamental en el diseño de controladores para lograr la estabilidad y el desempeño deseado.
 
