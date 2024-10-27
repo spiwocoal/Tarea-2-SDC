@@ -49,13 +49,6 @@ legend pos=outer north east
 \addplot[only marks, mark=o, mark size=2.0pt, thick, draw=Fuchsia, forget plot] table[]{Diagramas/data/lgr_c_pos-6.tsv};
 \addplot[only marks, mark=x, mark size=2.5pt, thick, draw=Fuchsia, forget plot] table[]{Diagramas/data/lgr_c_pos-7.tsv};
 
-\addplot[only marks, mark=square, mark size=2.0pt, thick, draw=Gray] table[row sep=crcr]{%
-   0       12.1792\\
-   0      -12.1792\\
-  -2.8345   0\\
-  };
-  \addlegendentry{Polos en L.C. para $\mora{k_{c}}=22.2\unit{m}$}
-
 \addplot[only marks, mark=square, mark size=2.0pt, thick, draw=Lavender] table[row sep=crcr]{%
   -1.4173  7.2161\\
   -1.4173 -7.2161\\
@@ -76,5 +69,12 @@ legend pos=outer north east
   -2.3622 0.0000\\
   };
   \addlegendentry{Polos en L.C. para $\mora{k_{c}}=10.8\unit{m}$}
+
+\addplot[only marks, mark=square, mark size=2.0pt, thick, draw=Gray] table[row sep=crcr]{%
+   0       12.1792\\
+   0      -12.1792\\
+  -2.8345   0\\
+  };
+  \addlegendentry{Polos en L.C. para $\mora{k_{c}}=22.2\unit{m}$}
 \end{axis}
 \end{tikzpicture}%

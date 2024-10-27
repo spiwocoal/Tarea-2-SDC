@@ -11,9 +11,12 @@ de $\mora{k_{c}}$ para el cual el sistema tendrá dos polos complejos conjugados
 con parte real $0$, mientras que para valores negativos de $\mora{k_{c}}$, habrá
 un solo valor que hará que el sistema tenga un polo real en el origen.
 
-Entonces, utilizamos un método iterativo (véase \autoref{lst:preg-f}) con un
-algoritmo de fuerza bruta para encontrar los valores de $\mora{k_{c}}$ que
-cumplen esta condición, y obtenemos que estos son,
+Entonces, utilizamos el comando \verb|margin| de \textit{MATLAB}, el cual, dado
+un sistema en lazo directo, nos entrega el valor de la ganancia para el cual el
+sistema es marginalmente estable (véase \autoref{lst:preg-f}). Nótese que para
+encontrar el valor negativo de $\mora{k_{c}}$, se multiplicó el sistema por $-1$,
+puesto que por defecto, \verb|margin| sólo encuentra valores positivos de ganancia.
+Los valores encontrados son entonces,
 \begin{equation}
     \boxed{\mora{k_{c}} = 0.0222} \quad \text{y} \quad \boxed{\mora{k_{c}} = -0.0088}
 \end{equation}

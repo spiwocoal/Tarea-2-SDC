@@ -21,4 +21,5 @@ eq2 = real(polos(1)) == 10 * real(polos(3));
 
 kc_orden1 = solve(eq2, kc);
 
-fprintf('kc1: %f\n', kc_orden1);
+fprintf('Ganancia para sistema de orden 1: %.4f\n', ...
+    kc_orden1);
