@@ -4,15 +4,10 @@
 %  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
 %where you can also make suggestions and rate matlab2tikz.
 %
-\definecolor{mycolor2}{rgb}{0.30196,0.74510,0.93333}%
-\definecolor{mycolor3}{rgb}{1.00000,0.27059,0.22745}%
-\definecolor{mycolor4}{rgb}{0.46667,0.67451,0.18824}%
-\definecolor{mycolor5}{rgb}{0.00000,0.44706,0.74118}%
-%
 \begin{tikzpicture}
 
 \begin{axis}[%
-width=5.958cm,
+width=5.871cm,
 height=6cm,
 at={(0cm,0cm)},
 scale only axis,
@@ -28,7 +23,7 @@ every y tick/.append style={white!15!black},
 ymin=-2,
 ymax=2,
 axis background/.style={fill=white},
-legend pos=north west
+legend pos=outer north east
 ]
 \draw[dotted, draw=gray] (axis cs:0,0) circle [radius=1];
 \addplot [color=gray, dotted, forget plot]
@@ -36,27 +31,31 @@ legend pos=north west
 \addplot [color=gray, dotted, forget plot]
   table[]{Diagramas/data/lgr_j_neg-2.tsv};
 
-\addplot [color=cyan, dashed, line width=1.5pt, forget plot]
+\addplot [dashed, color=cyan, line width=1.5pt, forget plot]
   table[]{Diagramas/data/lgr_j_neg-3.tsv};
-\addplot [color=ForestGreen, dashed, line width=1.5pt, forget plot]
+\addplot [dashed, color=Peach, line width=1.5pt, forget plot]
   table[]{Diagramas/data/lgr_j_neg-4.tsv};
-\addplot [color=NavyBlue, dashed, line width=1.5pt, forget plot]
+\addplot [dashed, color=ForestGreen, line width=1.5pt, forget plot]
   table[]{Diagramas/data/lgr_j_neg-5.tsv};
-\addplot [color=red, dashed, line width=1.5pt]
+\addplot [dashed, color=RoyalBlue, line width=1.5pt, forget plot]
   table[]{Diagramas/data/lgr_j_neg-6.tsv};
+\addplot [dashed, color=red, line width=1.5pt]
+  table[]{Diagramas/data/lgr_j_neg-7.tsv};
 \addlegendentry{$\mora{k_{c}} < 0$}
 
-\addplot [color=cyan, line width=1.5pt, forget plot]
+\addplot [color=Peach, line width=1.5pt, forget plot]
   table[]{Diagramas/data/lgr_j_pos-3.tsv};
-\addplot [color=red, line width=1.5pt]
+\addplot [color=cyan, line width=1.5pt, forget plot]
   table[]{Diagramas/data/lgr_j_pos-4.tsv};
-\addplot [color=ForestGreen, line width=1.5pt, forget plot]
+\addplot [color=red, line width=1.5pt]
   table[]{Diagramas/data/lgr_j_pos-5.tsv};
-\addplot [color=NavyBlue, line width=1.5pt, forget plot]
+\addplot [color=ForestGreen, line width=1.5pt, forget plot]
   table[]{Diagramas/data/lgr_j_pos-6.tsv};
+\addplot [color=RoyalBlue, line width=1.5pt, forget plot]
+  table[]{Diagramas/data/lgr_j_pos-7.tsv};
 \addlegendentry{$\mora{k_{c}} > 0$}
 
-\addplot[only marks, mark=o, thick, mark size=2.0pt, draw=Fuchsia, forget plot] table[]{Diagramas/data/lgr_j_neg-7.tsv};
-\addplot[only marks, mark=x, thick, mark size=2.5pt, draw=Fuchsia, forget plot] table[]{Diagramas/data/lgr_j_neg-8.tsv};
+\addplot[only marks, mark=o, mark options={}, mark size=2.0pt, draw=Fuchsia, thick, forget plot] table[]{Diagramas/data/lgr_j_neg-8.tsv};
+\addplot[only marks, mark=x, mark options={}, mark size=2.5pt, draw=Fuchsia, thick, forget plot] table[]{Diagramas/data/lgr_j_neg-9.tsv};
 \end{axis}
 \end{tikzpicture}%

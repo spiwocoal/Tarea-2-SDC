@@ -10,18 +10,19 @@ sys_c = ss(A, B, C, 0);
 
 z = tf('z', T);
 sys = c2d(sys_c, T);
-LaD = (1/(z-1)) * k_st * k_a * sys; % Lazo Directo
+ret = 1/z; % Retardo por calculo
+LaD = (1/(z-1)) * k_st * ret * k_a * sys; % Lazo Directo
 
 f1 = figure(1);
 rlocus(LaD);
-ylim([-5 5]);
+ylim([-2 2]);
 xlim([-2 2]);
 
 k = [linspace(0, 0.6, 3e3), 300];
 
 f2 = figure(2);
 rlocus(LaD, -k);
-ylim([-5 5]);
+ylim([-2 2]);
 xlim([-2 2]);
 
 if ~exist('exportar', 'var')

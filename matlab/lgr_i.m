@@ -8,20 +8,22 @@ k_st = 180/pi; k_a = 100;
 %% Lugar Geometrico de las Raices
 sys_c = ss(A, B, C, 0);
 
+z = tf('z', T);
 sys = c2d(sys_c, T);
-LaD = k_st * k_a * sys; % Lazo Directo
+ret = 1/z; % Retardo por calculo
+LaD = k_st * ret * k_a * sys; % Lazo Directo
 
 f1 = figure(1);
 rlocus(LaD);
-ylim([-1.5 1.5]);
-xlim([-5 1]);
+% ylim([-2 2]);
+% xlim([-2 2]);
 
 k = [linspace(0, 0.3, 3e3), 6];
 
 f2 = figure(2);
 rlocus(LaD, -k);
-ylim([-1.5 1.5]);
-xlim([-5 1]);
+% ylim([-2 2]);
+% xlim([-2 2]);
 
 if ~exist('exportar', 'var')
   exportar = false;
