@@ -1,6 +1,30 @@
 \section{Pregunta \texttt{g)}}\label{pregunta-g}
 \subsection{Desarrollo}
 
+A partir de lo que se pudo observar en los ítems anteriores, compliamos entonces
+la información que se puede obtener con el L.G.R. del sistema. En la \autoref{fig:lgr-g}
+se puede observar el lugar geométrico de las raíces, con los polos para cada una
+de las ganancias que se determinaron previamente.
+
+\begin{figure}[ht]
+  \centering
+  \input{Diagramas/lgr_g.tex}
+  \caption{Lugar geométrico de las raíces para el sistema con controlador proporcional.}
+  \label{fig:lgr-g}
+\end{figure}
+
+Respecto a la estabilidad del sistema, se concluye entonces que, el sistema será
+estable para ganancias en el intervalo $-8.8\unit{m} \leq \mora{k_{c}} \leq 22.2\unit{m}$.
+Esto se debe a que en los límites del intervalo se encuentran las ganancias que
+hacen del sistema marginalmente estable, tal como se observó en la pregunta
+\hyperref[pregunta-f]{\texttt{f)}}.
+
+Por otro lado, para que el sistema sea estable \textbf{y} oscilatorio para entrada
+escalón, hace falta que este se comporte como un sistema de segundo orden. Entonces,
+basándonos en la información obtenida en la pregunta \hyperref[pregunta-e]{\texttt{e)}},
+el sistema se comporta como un sistema de segundo orden, y es a la vez estable para
+aquellas ganancias que se encuentran en el intervalo $10.8\unit{m} \leq \mora{k_{c}} \leq 22.2\unit{m}$,
+donde el límite superior es la ganancia que hace del sistema marginalmente estable.
 
 
 \FloatBarrier
