@@ -3,12 +3,54 @@
 
 \subsubsection{C} %después lo borramos
 
-\begin{figure}[ht]
+Nuevamente realizamos lo mismo que en  \hyperref[pregunta-i]{\texttt{i)}} para encontrar los polos y ceros en L.D. y en L.C lo hacemos directamente con \textit{MATLAB} con el código que se ve en \autoref{lst:Cod_problema_Jc} donde nos entrega que:
+
+ \begin{itemize}
+  \item \textbf{L.D.} = \( \frac{\mora{k_{c}}}{z-1} \nara{ k_{a}} z^{-1} \cdot \frac{\rojo{\psi}(z)}{\verd{v_i}(z)} \nara{k_{st}} \) 
+  
+  \begin{multicols}{2}
+    \textbf{Polos}
+    \begin{itemize}
+      \item \(P_{0} = 0 \)
+      \item \(P_{1} = 1 \)
+      \item \(P_{2} = 0.7386\)
+      \item \(P_{3,4} = -0.1745 \pm 0.8588i\) 
+    \end{itemize}
+    \columnbreak
+    \textbf{Cero}
+    \begin{itemize}
+        \item \(Z_0 = 0.4062\)
+        \item \(Z_1 = -1.0472\)
+    \end{itemize}
+  \end{multicols}
+
+
+  \item \textbf{L.C} =  \(\frac{ \frac{\mora{k_{c}}}{z-1} \nara{ k_{a}} z^{-1} \cdot \frac{\rojo{\psi}(z)}{\verd{v_i}(z)}} {1+ \frac{\mora{k_{c}}}{z-1} \nara{ k_{a}} z^{-1} \cdot \frac{\rojo{\psi}(z)}{\verd{v_i}(z)} \nara{k_{st}} }  \)
+  
+  \begin{multicols}{2}
+    \textbf{Polos}
+    \begin{itemize}
+      \item \(P_{0} = 0.1500 \)
+      \item \(P_{1,2} = 0.8598 \pm 0.3415i\)
+      \item \(P_{3,4} = -0.2400 \pm 0.7910i\) 
+    \end{itemize}
+    \columnbreak
+    \textbf{Cero}
+    \begin{itemize}
+        \item \(Z_0 = 0.4062\)
+        \item \(Z_1 = -1.0472\)
+    \end{itemize}
+  \end{multicols}
+ \end{itemize}
+
+
+
 
 
 \FloatBarrier
 \subsubsection{D}%después lo borramos
 
+\begin{figure}[ht]
 \centering
 \input{Diagramas/lgr_j.tex}
 \caption{Lugar geométrico de las raíces para el sistema. Controlador proporcional.}

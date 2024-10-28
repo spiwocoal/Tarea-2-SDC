@@ -1,7 +1,7 @@
 \section{Pregunta \texttt{g)}}\label{pregunta-g}
 \subsection{Desarrollo}
 
-A partir de lo que se pudo observar en los ítems anteriores, compliamos entonces
+A partir de lo que se pudo observar en los ítems anteriores, compilamos entonces
 la información que se puede obtener con el L.G.R. del sistema. En la \autoref{fig:lgr-g}
 se puede observar el lugar geométrico de las raíces, con los polos para cada una
 de las ganancias que se determinaron previamente.
@@ -31,10 +31,12 @@ donde el límite superior es la ganancia que hace del sistema marginalmente esta
 \subsection{Comentarios}
 
 
-\textbf{!AQUÍ COMENTARIOS NO OLVIDAR!}
-Posibles Comentarios
-\begin{itemize}
-    \item Cuál rango es mayor
-    \item Siempre hay un rango para k tal que el sistema es estable y uno inestable
-    \item En los rangos que no es de 1er orden hay garantías que se comporta de 2do orden
-\end{itemize}
+Al estudiar el L.G.R del sistema de control, podemos ver que el sistema es estable para valores de ganancia \( -8.8 \, \text{m} \leq \mora{k_c} \leq 22.2 \, \text{m} \). En este intervalo, el sistema mantiene su estabilidad general, aunque no necesariamente presenta un comportamiento oscilatorio para todos los \(\mora{k_c}\) en este rango. Esta información es clave para definir la estabilidad básica del sistema sin requerir condiciones adicionales en la respuesta.
+
+Para el caso en que el sistema sea estable y, además, tenga un comportamiento oscilatorio adecuado para una entrada escalón, el intervalo de ganancias se restringe a \( 10.8 \, \text{m} \leq k_{c} \leq 22.2 \, \text{m} \). En este rango, el sistema actúa como un sistema de segundo orden, permitiendo una respuesta oscilatoria controlada.
+
+Este análisis permite identificar los rango de valores de \(\mora{k_c}\) 
+donde se asegura la estabilidad del sistema y otro donde se pierde dicha estabilidad, Siendo estos importante tener en cuenta para cuando que decida escoger un \(\mora{k_c}\) en nuestro sistema y no escoger uno donde sea inestable .
+
+
+Ademas cabe destacar que el primer rango de valores (\( -8.8 \, \text{m} \leq \mora{k_c} \leq 22.2 \, \text{m} \)) es mayor que el segundo \( 10.8 \, \text{m} \leq k_{c} \leq 22.2 \, \text{m} \), ya que el primero viene siendo el rango en donde el sistema es estable, sin discriminar el comportamiento, mientras que en el segundo rango partiendo por que es un subconjunto del primero es solo donde el sistema actua como un sistema de segundo orden es decir una respuesta controlada pero oscilatoria

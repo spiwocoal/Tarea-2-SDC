@@ -2,6 +2,43 @@
 \subsection{Desarrollo}
 
 \subsubsection{C} %después lo borramos
+ Para hacer \hyperref[pregunta-c]{\texttt{c)}} en esta pregunta que nos piden encontrar los los polos y ceros en L.D. y en L.C lo hacemos directamente con \textit{MATLAB} con el código que se ve en \autoref{lst:Cod_problema_Ic} donde obtenemos que:
+
+ \begin{itemize}
+  \item \textbf{L.D.} = \( \mora{k_{c}} \nara{ k_{a}} z^{-1} \cdot \frac{\rojo{\psi}(z)}{\verd{v_i}(z)} \nara{k_{st}} \) 
+  
+  \begin{multicols}{2}
+    \textbf{Polos}
+    \begin{itemize}
+      \item \(P_{0} = 0 \)
+      \item \(P_{2} = 0.7386\)
+      \item \(P_{3,4} = -0.1745 \pm 0.8588i\) 
+    \end{itemize}
+    \columnbreak
+    \textbf{Cero}
+    \begin{itemize}
+        \item \(Z_0 = 0.4062\)
+        \item \(Z_1 = -1.0472\)
+    \end{itemize}
+  \end{multicols}
+
+  \item \textbf{L.C} =  \(\frac{  \mora{k_{c}} \nara{ k_{a}} z^{-1} \cdot \frac{\rojo{\psi}(z)}{\verd{v_i}(z)}} {1+ \mora{k_{c}} \nara{ k_{a}} z^{-1} \cdot \frac{\rojo{\psi}(z)}{\verd{v_i}(z)} \nara{k_{st}} }  \)
+  
+  \begin{multicols}{2}
+    \textbf{Polos}
+    \begin{itemize}
+      \item \(P_{0} = 0.6466 \)
+      \item \(P_{2} = -0.1565\)
+      \item \(P_{3,4} = -0.0503 \pm 0.9297i\) 
+    \end{itemize}
+    \columnbreak
+    \textbf{Cero}
+    \begin{itemize}
+        \item \(Z_0 = 0.4062\)
+        \item \(Z_1 = -1.0472\)
+    \end{itemize}
+  \end{multicols}
+ \end{itemize}
 
 
 
