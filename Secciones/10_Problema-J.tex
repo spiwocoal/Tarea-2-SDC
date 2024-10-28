@@ -63,16 +63,16 @@ Nuevamente nos piden calcular cuando por lo menos se una raíz marginalmente est
 
 \begin{multicols}{2}
   \begin{itemize}
-      \item \(\mora{k_{c1}} = 0.0277 \) 
+      \item \(\mora{k_{c1}} = 0.0069  \) 
 
         \textbf{Polos}
         \begin{align}
-        \lambda_{0,1} &= 1.0651 \pm 0.9636i \\
-        \lambda_{2,3} &= -0.5513 \pm 0.7139i \\
-        \lambda_{4} &= 0.3618 \\
+        \lambda_{0,1} &= 0.8746 \pm 0.4826i\\
+        \lambda_{2,3} &= -0.2938 \pm 0.7608i \\
+        \lambda_{4} &= 0.2279 \\
         \end{align}
 
-      \item \(\mora{k_{c2}} = 0.0152\)
+      \item \(\mora{k_{c2}} = 0.0519\)
 
       \textbf{Polos}
       \begin{align}
@@ -81,10 +81,20 @@ Nuevamente nos piden calcular cuando por lo menos se una raíz marginalmente est
         \lambda_{4} &= 0.3228 \\
         \end{align}
         
+    \item \(\mora{k_{c4}} = 0\)
+
+    \textbf{Polos}
+    \begin{align}
+      \lambda_{0,1} &= -0.1745 \pm 0.8588i \\
+      \lambda_{2} &= 0.7386  \\
+      \lambda_{3} &= 0  \\
+      \lambda_{3} &= 1  \\
+    \end{align}
+        
   \end{itemize}
   \columnbreak
   \begin{itemize}
-      \item \(\mora{k_{c3}} = -0.0029\)
+      \item \(\mora{k_{c3}} = -0.0066\)
 
       \textbf{Polos}
       \begin{align}
@@ -94,7 +104,7 @@ Nuevamente nos piden calcular cuando por lo menos se una raíz marginalmente est
         \lambda_{4} &= -0.1041\\
         \end{align}
 
-      \item \(\mora{k_{c4}} = -0.3607\)
+      \item \(\mora{k_{c4}} = -1.4428\)
 
       \textbf{Polos}
       \begin{align}
@@ -104,24 +114,21 @@ Nuevamente nos piden calcular cuando por lo menos se una raíz marginalmente est
         \lambda_{3} &= 0.4093  \\
         \end{align}
 
-        \item \(\mora{k_{c4}} = 0\)
-
-        \textbf{Polos}
-        \begin{align}
-          \lambda_{0,1} &= -0.1745 \pm 0.8588i \\
-          \lambda_{2} &= 0.7386  \\
-          \lambda_{3} &= 0  \\
-          \lambda_{3} &= 1  \\
-        \end{align}
+        
   \end{itemize}
 \end{multicols}
+
 
 
 Los ceros del LC independiente del \(\mora{k_c}\) resultaban ser $Z_{0} = 0.4062 $ y $Z_{1} = -1.0472$ 
 
 \FloatBarrier
 \subsubsection{G}%después lo borramos
-
+ Analizando los \(\mora{k_c}\) obtenidos y su L.G.R llegamos a la
+conclusion de que el rango en donde el sistema es estable para este caso con el controlador integrador es:
+\begin{equation}
+  \boxed{ 0\unit{m} \leq \mora{k_{c}} \leq 6.9\unit{m} }
+\end{equation}
 
 \FloatBarrier
 \subsection{Comentarios}
