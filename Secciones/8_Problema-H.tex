@@ -65,15 +65,15 @@ Resolviendo con \textit{MATLAB}, se obtiene el valor de los polos y ceros de est
 
 \begin{figure}[ht]
     \centering
-    \input{Diagramas/lgr_h.tex}
+    \input{Diagramas/lgr_h1.tex}
     \caption{Lugar geométrico de las raíces para el sistema con controlador integrador.}
-    \label{fig:lgr-h}
+    \label{fig:lgr-h1}
 \end{figure}
 
 Luego, deseamos graficar el L.G.R. del sistema realimentado. Entonces, se repite
 el procedimiento realizado en \hyperref[pregunta-d]{\texttt{d)}}, mediante el
 comando \verb|rlocus|. Entonces, el lugar geométrico de las raíces para el sistema
-estudiado con controlador integrador es aquel de la \autoref{fig:lgr-h}.
+estudiado con controlador integrador es aquel de la \autoref{fig:lgr-h1}.
 
 A continuación, se buscan valores de $\mora{k_{c}}$ para los cuales el sistema se
 comporta como de primer y segundo orden estable. Entonces, se quiere que la razón
@@ -99,20 +99,58 @@ $\mora{k_{c}}$ debe ser:
 
 Se grafica nuevamente el L.G.R. y se observa entonces que para las ganancias dadas,
 se tienen los siguientes polos:
-    \begin{itemize}
-        \item $\lambda_{0,1} = -1.2885 \pm 1.6913j$
-        \item $\lambda_{2,3} = -0.1288 \pm 8.6988j$
-    \end{itemize}
+\begin{itemize}
+    \item $\lambda_{0,1} = -1.2885 \pm 1.6913j$
+    \item $\lambda_{2,3} = -0.1288 \pm 8.6988j$
+\end{itemize}
 
 Se observa que no hay valor negativo de $\mora{k_{c}}$ para el cual sea posible
 reducir el orden del sistema, manteniendo estabilidad puesto que para ganancias
 negativas, el sistema siempre tendrá un polo en el S.P.D.
 
-\FloatBarrier
-\subsubsection{F}%después lo borramos
+Luego, utilizando el mismo comando que se utilizó para el caso previo, se obtienen
+valores de $\mora{k_{c}}$ tales que el sistema sea marginalmente estable. Del lugar
+geométrico de las raíces (\autoref{fig:lgr-h2}), podemos observar que para este sistema,
+con controlador integrador, existirá un único valor de $\mora{k_{c}}$ para que
+el sistema sea marginalmente estable, el cual será positivo. Entonces, el valor
+que se encontró es:
+\begin{equation}
+    \boxed{\mora{k_{c}} = 0.0310}
+\end{equation}
 
-\FloatBarrier
-\subsubsection{G}%después lo borramos
+Además, se puede observar que debido al controlador, el sistema cuenta con un
+polo en el origen, por lo que para $\mora{k_{c}} = 0$ se podría decir que el
+sistema también es marginalmente estable.
+
+\begin{figure}[ht]
+    \centering
+    \input{Diagramas/lgr_h2.tex}
+    \caption{Lugar geométrico de las raíces para el sistema con controlador integrador.}
+    \label{fig:lgr-h2}
+\end{figure}
+
+Calculamos entonces los polos del sistema para esta ganancia:
+\begin{itemize}
+    \item $\lambda_{0,1} = -1.4178 \pm 1.8868$
+    \item $\lambda_{2,3} = \pm 8.6778$
+\end{itemize}
+
+Recopilando toda esta información, podemos entonces concluir que para que el
+sistema sea estable, la ganancia debe ser positiva, puesto que para todo valor
+negativo de $\mora{k_{c}}$, el sistema cuenta con polos en el S.P.D.
+
+Entonces, puesto que el sistema se hace marginalmente estable para $\mora{k_{c}} = 31\unit{m}$,
+el intervalo para el cual el sistema es estable es,
+\begin{equation}
+    \boxed{0 \leq \mora{k_{c}} \leq 31\unit{m}}
+\end{equation}
+
+Luego, el sistema es estable y se comporta como un sistema de segundo orden, o
+bien, es oscilatorio para entrada escalón, para ganancias que se encuentran en
+el intervalo
+\begin{equation}
+    \boxed{25.3\unit{m} \leq \mora{k_{c}} \leq 31\unit{m}}
+\end{equation}
 
 \FloatBarrier
 \subsection{Comentarios}
