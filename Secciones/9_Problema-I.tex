@@ -74,8 +74,9 @@
      
     % Arrows with text label
     \draw[-stealth, Emerald] (sum.east) -- (controller.west)
-        node[midway,above]{};
-\draw[-stealth, Emerald] (controller.east) -- (delay.west)
+        node[midway,above,text=black]{$e$};
+
+    \draw[-stealth, Emerald] (controller.east) -- (delay.west)
         node[midway,above]{$\azul{w_{d}}$};
 
     \draw[-stealth, Emerald] (delay.east) -- (holder.west)
@@ -101,7 +102,7 @@
     \draw[Emerald] (sum.west) -- ++(-1,0) 
         node[midway,above]{$\rojo{\psi_{d}}$};
   \end{tikzpicture}
-  \caption{Lazo cerrado de control para el sistema híbrido.}\label{fig:control-prop-hibrido}
+  \caption{Lazo de control para el sistema híbrido.}\label{fig:diag-lc-hibrido}
 \end{figure}
 
 \subsubsection{C} %después lo borramos
