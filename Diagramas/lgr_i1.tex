@@ -28,35 +28,47 @@ legend pos=outer north east
 ]
 \draw[dotted, draw=gray] (axis cs:0,0) circle [radius=1];
 \addplot [color=gray, dotted, forget plot]
-  table[]{Diagramas/data/lgr_j_neg-1.tsv};
+  table[]{Diagramas/data/lgr_i_neg-1.tsv};
 \addplot [color=gray, dotted, forget plot]
-  table[]{Diagramas/data/lgr_j_neg-2.tsv};
+  table[]{Diagramas/data/lgr_i_neg-2.tsv};
 
 \addplot [dashed, color=cyan, line width=1.5pt, forget plot]
-  table[]{Diagramas/data/lgr_j_neg-3.tsv};
-\addplot [dashed, color=Peach, line width=1.5pt, forget plot]
-  table[]{Diagramas/data/lgr_j_neg-4.tsv};
-\addplot [dashed, color=ForestGreen, line width=1.5pt, forget plot]
-  table[]{Diagramas/data/lgr_j_neg-5.tsv};
-\addplot [dashed, color=RoyalBlue, line width=1.5pt, forget plot]
-  table[]{Diagramas/data/lgr_j_neg-6.tsv};
+  table[]{Diagramas/data/lgr_i_neg-3.tsv};
 \addplot [dashed, color=red, line width=1.5pt]
-  table[]{Diagramas/data/lgr_j_neg-7.tsv};
+  table[]{Diagramas/data/lgr_i_neg-4.tsv};
+\addplot [dashed, color=ForestGreen, line width=1.5pt, forget plot]
+  table[]{Diagramas/data/lgr_i_neg-5.tsv};
+\addplot [dashed, color=RoyalBlue, line width=1.5pt, forget plot]
+  table[]{Diagramas/data/lgr_i_neg-6.tsv};
 \addlegendentry{$\mora{k_{c}} < 0$}
 
-\addplot [color=Peach, line width=1.5pt, forget plot]
-  table[]{Diagramas/data/lgr_j_pos-3.tsv};
 \addplot [color=cyan, line width=1.5pt, forget plot]
-  table[]{Diagramas/data/lgr_j_pos-4.tsv};
-\addplot [color=red, line width=1.5pt]
-  table[]{Diagramas/data/lgr_j_pos-5.tsv};
-\addplot [color=ForestGreen, line width=1.5pt, forget plot]
-  table[]{Diagramas/data/lgr_j_pos-6.tsv};
+  table[]{Diagramas/data/lgr_i_pos-3.tsv};
 \addplot [color=RoyalBlue, line width=1.5pt, forget plot]
-  table[]{Diagramas/data/lgr_j_pos-7.tsv};
+  table[]{Diagramas/data/lgr_i_pos-4.tsv};
+\addplot [color=red, line width=1.5pt]
+  table[]{Diagramas/data/lgr_i_pos-5.tsv};
+\addplot [color=ForestGreen, line width=1.5pt, forget plot]
+  table[]{Diagramas/data/lgr_i_pos-6.tsv};
 \addlegendentry{$\mora{k_{c}} > 0$}
 
-\addplot[only marks, mark=o, mark options={}, mark size=2.0pt, draw=Fuchsia, thick, forget plot] table[]{Diagramas/data/lgr_j_neg-8.tsv};
-\addplot[only marks, mark=x, mark options={}, mark size=2.5pt, draw=Fuchsia, thick, forget plot] table[]{Diagramas/data/lgr_j_neg-9.tsv};
+\addplot[only marks, mark=o, mark options={}, mark size=2.0pt, thick, draw=Fuchsia, forget plot] table[]{Diagramas/data/lgr_i_neg-7.tsv};
+\addplot[only marks, mark=x, mark options={}, mark size=2.5pt, thick, draw=Fuchsia, forget plot] table[]{Diagramas/data/lgr_i_neg-8.tsv};
+
+\addplot[only marks, mark=square, mark size=2.0pt, thick, draw=Gray] table[row sep=crcr]{%
+  0 0\\
+  0.7386 0\\
+  -0.1745 -0.8588\\
+  -0.1745 0.8588\\
+  };
+  \addlegendentry{Polos en L.D. para $\mora{k_{c}}=4\unit{m}$}
+
+\addplot[only marks, mark=square, mark size=2.0pt, thick, draw=Lavender] table[row sep=crcr]{%
+  0.6466 0\\
+  -0.1565 0\\
+  -0.0503 -0.9297\\
+  -0.0503 0.9297\\
+  };
+  \addlegendentry{Polos en L.C. para $\mora{k_{c}}=4\unit{m}$}
 \end{axis}
 \end{tikzpicture}%

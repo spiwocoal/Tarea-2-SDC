@@ -23,6 +23,7 @@ every y tick/.append style={white!15!black},
 ymin=-2,
 ymax=2,
 axis background/.style={fill=white},
+legend cell align=left,
 legend pos=outer north east
 ]
 \draw[dotted, draw=gray] (axis cs:0,0) circle [radius=1];
@@ -53,5 +54,37 @@ legend pos=outer north east
 
 \addplot[only marks, mark=o, mark options={}, mark size=2.0pt, thick, draw=Fuchsia, forget plot] table[]{Diagramas/data/lgr_i_neg-7.tsv};
 \addplot[only marks, mark=x, mark options={}, mark size=2.5pt, thick, draw=Fuchsia, forget plot] table[]{Diagramas/data/lgr_i_neg-8.tsv};
+
+\addplot[only marks, mark=square, mark size=2.0pt, thick, draw=Gray] table[row sep=crcr]{%
+  0.0221 -1.0006\\
+  0.0221 1.0006\\
+  -0.2526 0\\
+  0.5979 0\\
+  };
+\addlegendentry{Polos en L.C. para $\mora{k_{c}}=6.9\unit{m}$}
+
+\addplot[only marks, mark=square, mark size=2.0pt, thick, draw=Lavender] table[row sep=crcr]{%
+  0.4903 -6.2005\\
+  0.4903 6.2005\\
+  -1 0\\
+  0.4089 0\\
+  };
+\addlegendentry{Polos en L.C. para $\mora{k_{c}}=721.4\unit{m}$}
+
+\addplot[only marks, mark=square, mark size=2.0pt, thick, draw=Emerald] table[row sep=crcr]{%
+  -0.4178 -0.8245\\
+  -0.4178 0.8245\\
+  1 0\\
+  0.2260 0\\
+  };
+\addlegendentry{Polos en L.C. para $\mora{k_{c}}=-8.8\unit{m}$}
+
+\addplot[only marks, mark=square, mark size=2.0pt, thick, draw=Dandelion] table[row sep=crcr]{%
+  -0.5609 -0.8283\\
+  -0.5609 0.8283\\
+  1.2156 0\\
+  0.2956 0\\
+  };
+\addlegendentry{Polos en L.C. para $\mora{k_{c}}=-16.4\unit{m}$}
 \end{axis}
 \end{tikzpicture}%
