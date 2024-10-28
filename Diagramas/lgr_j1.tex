@@ -22,6 +22,8 @@ every y tick label/.append style={font=\color{white!15!black}},
 every y tick/.append style={white!15!black},
 ymin=-2,
 ymax=2,
+xlabel={$\mathfrak{Re}$},
+ylabel={$\mathfrak{Im}$},
 axis background/.style={fill=white},
 legend cell align=left,
 legend pos=outer north east
@@ -58,5 +60,23 @@ legend pos=outer north east
 
 \addplot[only marks, mark=o, mark options={}, mark size=2.0pt, draw=Fuchsia, thick, forget plot] table[]{Diagramas/data/lgr_j_neg-8.tsv};
 \addplot[only marks, mark=x, mark options={}, mark size=2.5pt, draw=Fuchsia, thick, forget plot] table[]{Diagramas/data/lgr_j_neg-9.tsv};
+
+\addplot[only marks, mark=square, mark size=2.0pt, thick, draw=Gray] table[row sep=crcr]{%
+  0 0\\
+  1 0\\
+  0.7386 0\\
+  -0.1745 -0.8588\\
+  -0.1745 0.8588\\
+  };
+\addlegendentry{Polos en L.D. para $\mora{k_{c}}=4\unit{m}$}
+
+\addplot[only marks, mark=square, mark size=2.0pt, thick, draw=Lavender] table[row sep=crcr]{%
+  0.15 0\\
+  0.8598 -0.3415\\
+  0.8598 0.3415\\
+  -0.24 -0.791\\
+  -0.24 0.791\\
+  };
+\addlegendentry{Polos en L.C. para $\mora{k_{c}}=4\unit{m}$}
 \end{axis}
 \end{tikzpicture}%

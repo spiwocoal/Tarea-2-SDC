@@ -22,6 +22,8 @@ every y tick label/.append style={font=\color{white!15!black}},
 every y tick/.append style={white!15!black},
 ymin=-2,
 ymax=2,
+xlabel={$\mathfrak{Re}$},
+ylabel={$\mathfrak{Im}$},
 axis background/.style={fill=white},
 legend cell align=left,
 legend pos=outer north east
@@ -61,7 +63,7 @@ legend pos=outer north east
   -0.1745 -0.8588\\
   -0.1745 0.8588\\
   };
-  \addlegendentry{Polos en L.D. para $\mora{k_{c}}=4\unit{m}$}
+\addlegendentry{Polos en L.D. para $\mora{k_{c}}=4\unit{m}$}
 
 \addplot[only marks, mark=square, mark size=2.0pt, thick, draw=Lavender] table[row sep=crcr]{%
   0.6466 0\\
@@ -69,6 +71,6 @@ legend pos=outer north east
   -0.0503 -0.9297\\
   -0.0503 0.9297\\
   };
-  \addlegendentry{Polos en L.C. para $\mora{k_{c}}=4\unit{m}$}
+\addlegendentry{Polos en L.C. para $\mora{k_{c}}=4\unit{m}$}
 \end{axis}
 \end{tikzpicture}%
