@@ -157,6 +157,55 @@
 
 \FloatBarrier
 \subsubsection{F}%después lo borramos
+Ahora nos piden calcular cuando por lo menos se una raíz marginalmente estable. 
+Donde lo realizamos en \textit{MATLAB}, con el comando \verb|allmargin|  y  \verb|.GainMargin|, que nos entrega directamente las ganancias que requerimos, esto se ve en el \autoref{lst:Cod_problema_If}. Y ademas sus raíces correspondientes en L.C las calculamos con el mismo código en \autoref{lst:Cod_problema_Ic} solo cambiando el \(k_c\) correspondiente y tomando en cuenta el L.C tal que los \( \mora{k_c}\) y sus raíces serian los  serian los siguientes : 
+
+\begin{multicols}{2}
+  \begin{itemize}
+      \item \(\mora{k_{c1}} = 0.0069\) 
+
+        \textbf{Polos}
+        \begin{align}
+        \lambda_{0,1} &=0.0221 \pm 1.0006i \\
+        \lambda_{2} &= -0.2526 \\
+        \lambda_{3} &= 0.5979 \\
+        \end{align}
+
+      \item \(\mora{k_{c2}} = 0.7214\)
+
+      \textbf{Polos}
+      \begin{align}
+        \lambda_{0,1} &= 0.4903 \pm 6.2005i \\
+        \lambda_{2} &= -1.0000 \\
+        \lambda_{3} &= 0.4089 \\
+        \end{align}
+  \end{itemize}
+  \columnbreak
+  \begin{itemize}
+      \item \(\mora{k_{c3}} = -0.0088\)
+
+      \textbf{Polos}
+      \begin{align}
+        \lambda_{0,1} &= -0.4178 \pm 0.8245i \\
+        \lambda_{2} &= 0.9990 \\
+        \lambda_{3} &= 0.2260 \\
+        \end{align}
+
+      \item \(\mora{k_{c4}} = -0.0164\)
+
+      \textbf{Polos}
+      \begin{align}
+        \lambda_{0,1} &= -0.5609 \pm 0.8283i \\
+        \lambda_{2} &= 1.2156  \\
+        \lambda_{3} &= 0.2956  \\
+        \end{align}
+  \end{itemize}
+\end{multicols}
+
+
+Los ceros del LC independiente del \(\mora{k_c}\) resultaban ser $Z_{0} = 0.4062 $ y $Z_{1} = -1.0472$ 
+
+
 
 \FloatBarrier
 \subsubsection{G}%después lo borramos
