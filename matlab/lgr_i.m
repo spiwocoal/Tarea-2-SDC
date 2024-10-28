@@ -12,18 +12,18 @@ z = tf('z', T);
 sys = c2d(sys_c, T);
 ret = 1/z; % Retardo por calculo
 LaD = k_st * ret * k_a * sys; % Lazo Directo
-
+%%
 f1 = figure(1);
 rlocus(LaD);
-% ylim([-2 2]);
-% xlim([-2 2]);
+ylim([-2 2]);
+xlim([-2 2]);
 
 k = [linspace(0, 0.3, 3e3), 6];
 
 f2 = figure(2);
 rlocus(LaD, -k);
-% ylim([-2 2]);
-% xlim([-2 2]);
+ylim([-2 2]);
+xlim([-2 2]);
 
 if ~exist('exportar', 'var')
   exportar = false;
