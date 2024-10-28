@@ -74,8 +74,9 @@
      
     % Arrows with text label
     \draw[-stealth, Emerald] (sum.east) -- (controller.west)
-        node[midway,above]{};
-\draw[-stealth, Emerald] (controller.east) -- (delay.west)
+        node[midway,above,text=black]{$e$};
+
+    \draw[-stealth, Emerald] (controller.east) -- (delay.west)
         node[midway,above]{$\azul{w_{d}}$};
 
     \draw[-stealth, Emerald] (delay.east) -- (holder.west)
@@ -101,7 +102,7 @@
     \draw[Emerald] (sum.west) -- ++(-1,0) 
         node[midway,above]{$\rojo{\psi_{d}}$};
   \end{tikzpicture}
-  \caption{Lazo cerrado de control para el sistema híbrido.}\label{fig:control-prop-hibrido}
+  \caption{Lazo de control para el sistema híbrido.}\label{fig:diag-lc-hibrido}
 \end{figure}
 
 \subsubsection{C} %después lo borramos
@@ -150,10 +151,10 @@
 
 \begin{figure}[ht]
     \centering
-    \input{Diagramas/lgr_i.tex}
+    \input{Diagramas/lgr_i1.tex}
     \caption{Lugar geométrico de las raíces para el sistema. Controlador proporcional.}
-    \label{fig:lgr-i}
-  \end{figure}
+    \label{fig:lgr-i1}
+\end{figure}
 
 \FloatBarrier
 \subsubsection{F}%después lo borramos
@@ -202,9 +203,14 @@ Donde lo realizamos en \textit{MATLAB}, con el comando \verb|allmargin|  y  \ver
   \end{itemize}
 \end{multicols}
 
+\begin{figure}[ht]
+    \centering
+    \input{Diagramas/lgr_i2.tex}
+    \caption{Lugar geométrico de las raíces para el sistema. Controlador proporcional.}
+    \label{fig:lgr-i2}
+\end{figure}
 
 Los ceros del LC independiente del \(\mora{k_c}\) resultaban ser $Z_{0} = 0.4062 $ y $Z_{1} = -1.0472$ 
-
 
 
 \FloatBarrier
