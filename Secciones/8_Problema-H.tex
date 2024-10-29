@@ -131,8 +131,8 @@ sistema también es marginalmente estable.
 
 Calculamos entonces los polos del sistema para esta ganancia:
 \begin{itemize}
-    \item $\lambda_{0,1} = -1.4178 \pm 1.8868$
-    \item $\lambda_{2,3} = \pm 8.6778$ \\
+    \item $\lambda_{0,1} = -1.4178 \pm 1.8868j$
+    \item $\lambda_{2,3} = \pm 8.6778j$ \\
 \end{itemize}
 
 Recopilando toda esta información, podemos entonces concluir que para que el
@@ -152,15 +152,25 @@ el intervalo
     \boxed{25.3\unit{m} \leq \mora{k_{c}} \leq 31\unit{m}}
 \end{equation}
 
-\FloatBarrier
 \subsection{Comentarios}
 
-\textbf{!AQUÍ COMENTARIOS NO OLVIDAR!}
-Posibles Comentarios
-\begin{itemize}
-    \item Idem (c), (d), (e), (f) y (g) comparando con el controlador de ganancia
-\end{itemize}
+Podemos observar de lo obtenido que tanto para este sistema, como para el estudiado
+anteriormente con controlador proporcional, existe un único cero en $s = -4.4609$ para
+el L.D.
 
+Además, podemos recalcar nuevamente que no existe valor negativo de $\mora{k_{c}}$,
+para el cual el sistema sea estable puesto que, al haber un polo en el origen,
+todo valor de ganancia negativa ubicará a alguno de los polos en el S.P.D.
 
-que se pude comentar:
- C) en ambos se mantuvo el cero .... El lazo directo se mantuvo igual solo añadió un polo en 0.... y en LC los polos cambian con respecto a C  (ver que mas y chamullar luego)
+Otra diferencia importante que se observa es que el sistema con controlador
+integrador no puede comportarse como sistema de primer orden y a la vez ser
+estable. Esto se debe a que, para comportarse como sistema de primer orden,
+la ganancia debiera ser negativa, pero como ya se mencionó anteriormente,
+no existen valores de ganancia negativos que permitan que el sistema sea
+estable, por lo que no es posible que ambas se cumplan a la vez.
+
+También observamos que, puesto que el controlador es integrador, el sistema
+pasa entonces a ser de orden $4$, por lo que su L.G.R. tiene $4$ ramas, las
+cuales, para ganancias positivas, una de ellas se va hacia el único cero del
+sistema, mientras que las $3$ restantes se van al infinito. Paralelamente, lo
+mismo ocurre para ganancias negativas.
