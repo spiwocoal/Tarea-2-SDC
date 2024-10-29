@@ -76,7 +76,7 @@ S.S. para el sistema en lazo cerrado (\autoref{fig:diag-lc}), con entrada genera
 \end{figure}
 
 
-Ahora bien, de la tarea anterior tenemos que:
+Ahora bien, de la tarea anterior \cite{tarea-1-sdc} tenemos que:
 \begin{equation}
   \frac{\rojo{\psi}(s)}{\verd{v_i}(s)} =
   \frac{\nara{\nara{b_{0\omega}}}\left(\nara{b_{1\psi}}s + \nara{b_{0\psi}}\right)}
@@ -153,7 +153,7 @@ Siendo este el valor del error en estado estacionario para la entrada generaliza
 \FloatBarrier
 \subsection{Comentarios}
 
-Al estudiar el comportamiento en estado estacionario de un sistema de control, es crucial analizar el error en ese régimen, ya que nos permite evaluar el rendimiento del sistema a largo plazo. Este error en estado estacionario está directamente relacionado con el tipo de controlador que se utilice. En este caso, estamos utilizando un controlador proporcional (de tipo ganancia \(\mora{k_{c}}\)), lo que implica que el sistema no cuenta con integradores. Esto provoca que el error en estado estacionario no sea cero, ya que los controladores proporcionales solo pueden reducir el error, pero no eliminarlo completamente (Esto se puede corroborar revisando la pregunta C o D, en la Tarea 1 en donde se simulo y gráfico un controlador proporcional con ganancia \(\mora{k_{c}} \) ). Para lograr un error nulo, sería necesario incorporar un integrador que corrija la acumulación de error a lo largo del tiempo.
+Al estudiar el comportamiento en estado estacionario de un sistema de control, es crucial analizar el error en ese régimen, ya que nos permite evaluar el rendimiento del sistema a largo plazo. Este error en estado estacionario está directamente relacionado con el tipo de controlador que se utilice. En este caso, estamos utilizando un controlador proporcional (de tipo ganancia \(\mora{k_{c}}\)), lo que implica que el sistema no cuenta con integradores. Esto provoca que el error en estado estacionario no sea cero, ya que los controladores proporcionales solo pueden reducir el error, pero no eliminarlo completamente (Esto se puede corroborar revisando la pregunta C o D, en la Tarea 1 \cite{tarea-1-sdc} en donde se simulo y gráfico un controlador proporcional con ganancia \(\mora{k_{c}} \) ). Para lograr un error nulo, sería necesario incorporar un integrador que corrija la acumulación de error a lo largo del tiempo.
 
 Además, Como lo hicimos de manera simbólica podemos ver que los parámetros del sistema que afectan directamente en el valor de este error en estado estacionario. Como podemos ver en la \eqref{eq:e_ss_symbolic} se encuentran la ganancia del controlador \(\mora{k_{c}}\), la ganancia del actuador \(\nara{k_a}\), y otras constantes del sistema, como \(\nara{b_{0\omega}}\), \(\nara{b_{0\psi}}\), \(\nara{a_{0\omega}}\) y \(\nara{a_{0\psi}}\), que forman parte de la dinámica de la planta. Pero los únicos que podemos variar para modificar el error son el \(\mora{k_{c}}\) o \(\nara{k_a}\) ya sea, disminuyéndolos o aumentándolos, aunque el error nunca se elimina por completo debido a la falta de un integrador como mencionamos anteriormente. Pero cabe destacar que para efectos de este curso, solo influiría el \(\mora{k_{c}}\) en el cambio de el error s.s., dado que es la variable que manipulamos en el curso. Por otro lado, parámetros como el valor inicial del sistema o la señal deseada influyen más en el comportamiento transitorio y no afectan directamente el error en estado estacionario.
 
