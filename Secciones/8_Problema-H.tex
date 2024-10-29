@@ -131,8 +131,8 @@ sistema también es marginalmente estable.
 
 Calculamos entonces los polos del sistema para esta ganancia:
 \begin{itemize}
-    \item $\lambda_{0,1} = -1.4178 \pm 1.8868$
-    \item $\lambda_{2,3} = \pm 8.6778$ \\
+    \item $\lambda_{0,1} = -1.4178 \pm 1.8868j$
+    \item $\lambda_{2,3} = \pm 8.6778j$ \\
 \end{itemize}
 
 Recopilando toda esta información, podemos entonces concluir que para que el
@@ -152,18 +152,31 @@ el intervalo
     \boxed{25.3\unit{m} \leq \mora{k_{c}} \leq 31\unit{m}}
 \end{equation}
 
-\FloatBarrier
 \subsection{Comentarios}
 
-\textbf{!AQUÍ COMENTARIOS NO OLVIDAR!}
-Posibles Comentarios
-\begin{itemize}
-    \item Idem (c), (d), (e), (f) y (g) comparando con el controlador de ganancia
-\end{itemize}
+
+ En el caso de analizar el sistema con un controlador de tipo integrador (\(\mora{k_c}/s\)), observamos algunos cambios con respecto al Controlador proporcional. Al comparar los polos y ceros en L.D. y L.C., se mantiene el cero ($s = -4.4609$) en el mismo lugar que en el caso con el controlador proporcional, dado que el integrador no afecta esta posición y como mencionamos depende netamente de la planta. Sin embargo, en L.D añade un polo en el origen que modifica la dinámica del sistema. Esto se traduce en una respuesta de mayor persistencia en la dinámica, con tendencia a eliminar el error en estado estacionario como se ha visto en clases, y como vimos en la tarea 1 es capaz de llegar a la entrada de referencia.
+
+Además, viendo el L.G.R. podemos recalcar nuevamente que no existe valor negativo de $\mora{k_{c}}$, para el cual el sistema sea estable puesto que, al ser con controlador integrador, se forma un polo en el origen y 
+todo valor de ganancia negativa ubicará a alguno de los polos en el S.P.D.
+
+También observamos que, puesto que el controlador es integrador, el sistema
+pasa entonces a ser de orden $4$, por lo que su L.G.R. tiene $4$ ramas, las
+cuales, para ganancias positivas, una de ellas se va hacia el único cero del
+sistema, mientras que las $3$ restantes se van al infinito. Paralelamente, lo
+mismo ocurre para ganancias negativas.
+
+Otra diferencia importante que se observa es que el sistema con controlador
+integrador no puede comportarse como sistema de primer orden y a la vez ser
+estable. Esto se debe a que, para comportarse como sistema de primer orden,
+la ganancia debiera ser negativa, pero como ya se mencionó anteriormente,
+no existen valores de ganancia negativos que permitan que el sistema sea
+estable, por lo que no es posible que ambas se cumplan a la vez.
+
+En resumen con el L.G.R se obtiene el análisis de estabilidad donde dio el 
+rango de \(0 \leq \mora{k_{c}} \leq 31\unit{m}\) muestra que la respuesta del 
+sistema puede controlarse efectivamente con valores de ganancia adecuados, 
+proporcionando una respuesta más estable y sin oscilaciones no deseadas en el 
+régimen estacionario.
 
 
- En el caso de analizar el sistema con un controlador de tipo integrador (\(\mora{k_c}/s\)), observamos algunos cambios con respecto al Controlador proporcional. Al comparar los polos y ceros en L.D. y L.C., se mantiene el cero en el mismo lugar que en el caso con el controlador proporcional, dado que el integrador no afecta esta posición y como mencionamos depende netamente de la planta. Sin embargo, en L.D añade un polo en el origen que modifica la dinámica del sistema. Esto se traduce en una respuesta de mayor persistencia en la dinámica, con tendencia a eliminar el error en estado estacionario como se ha visto en clases, y como vimos en la tarea 1 es capaz de llegar a la entrada de referencia.
-
-Ademas con L.G.R. vemos que gracias al ser con controlador integrador, en este caso el sistema es estable solo en un rango positivo de ganancias (\(\mora{k_c}\)) solamente. Ya que en el negativo gracias al polo que se genera en el origen, donde si el \(\mora{k_c}\) fuera menor que $0$ se haría inestable, ya que un polo pasaría al semiplano Derecho.
-
-En resumen con el L.G.R se obtiene el análisis de estabilidad donde dio el rango de \(0 \leq \mora{k_{c}} \leq 31\unit{m}\) muestra que la respuesta del sistema puede controlarse efectivamente con valores de ganancia adecuados, proporcionando una respuesta más estable y sin oscilaciones no deseadas en el régimen estacionario.
