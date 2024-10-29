@@ -121,8 +121,8 @@ directamente de las capacidades de \textit{MATLAB} para trabajar con sistemas
     \textbf{Polos}
     \begin{itemize}
       \item \(P_{0} = 0 \)
-      \item \(P_{2} = 0.7386\)
-      \item \(P_{3,4} = -0.1745 \pm 0.8588i\) 
+      \item \(P_{1} = 0.7386\)
+      \item \(P_{2,3} = -0.1745 \pm 0.8588i\) 
     \end{itemize}
     \columnbreak
     \textbf{Cero}
@@ -138,8 +138,8 @@ directamente de las capacidades de \textit{MATLAB} para trabajar con sistemas
     \textbf{Polos}
     \begin{itemize}
       \item \(P_{0} = 0.6466 \)
-      \item \(P_{2} = -0.1565\)
-      \item \(P_{3,4} = -0.0503 \pm 0.9297i\) 
+      \item \(P_{1} = -0.1565\)
+      \item \(P_{2,3} = -0.0503 \pm 0.9297i\) 
     \end{itemize}
     \columnbreak
     \textbf{Cero}
@@ -224,8 +224,9 @@ dentro del círculo unitario. Por lo tanto, el intervalo de estabilidad para \(\
 \subsection{Comentarios}
 
 
-\textbf{!AQUÍ COMENTARIOS NO OLVIDAR!}
-Posibles Comentarios
-\begin{itemize}
-    \item Idem (c), (d), (f) y (g) comparando con el controlador de ganancia tiempo continuo
-\end{itemize}
+
+Cuando discretizamos el sistema, se observa un cambio significativo en la dinámica de los polos debido a la discretización del sistema. Donde además vemos que en comparación con el controlador de ganancia en tiempo continuo, aquí se añade 1 cero más al sistema. Pero nuevamente vemos el mismo comportamiento es decir que los ceros se mantienen, ya sea para el LD y LC, y se mantendrán también para los ceros del controlador integrador en tiempo discreto. La razón de esto es que, al igual que en el tiempo continuo el comportamiento de los ceros en este caso depende solamente de la planta y nada más los afecta. No así como es en el caso de los polos, que vemos que cambian del LD al LC.
+
+También vemos que existen mas \( \mora{k_c}\), que son marginalmente estables, que los vistos anteriormente. Pero no implica que  que todos los \( \mora{k_c}\) que se obtuvieron hagan el sistema estable, ya que con algunos de esto como se puede apreciar en la \autoref{fig:lgr-i2} , como mínimo un polo queda fuera del el circulo unitario, eh incluso algunos de se llegan a apreciar, ya que son mayores a los margenes utilizados para graficar. Y al pasar que queden fuera nos dice que con ese \( \mora{k_c}\) a pesar que sea marginalmente estable, el sistema no lo es. 
+
+En resumen estudiando el comportamiento por medio del L.G.R., podemos visualizar que el sistema al menos posee un valor de \( \mora{k_c} > 0 \) y un valor de \( \mora{k_c} < 0 \) que hacen que el sistema se comporte de manera estable, fijando como los márgenes de estabilidad la circunferencia unitaria debido a que es un sistema discreto. Donde en este caso el rango de \( \mora{k_c}\) que realiza esto es y asegura el sistema sea estable en el dominio discreto es \(-8.8\unit{m} \leq \mora{k_{c}} \leq 6.9\unit{m} \)  

@@ -126,9 +126,9 @@ rango de ganancias en el cual el sistema es estable es:
 \subsection{Comentarios}
 
 
-\textbf{!AQUÍ COMENTARIOS NO OLVIDAR!}
+En el caso del controlador integrador discreto \(\mora{k_c}/(z-1)\), el sistema presenta características de estabilidad similares a las observadas en el controlador proporcional discreto, pero con un cambio adicional en el comportamiento de los polos debido a la introducción del integrador. Este integrador tiende a mejorar la eliminación del error en estado estacionario, como se vio en clases, pero también incrementa la sensibilidad del sistema a las variaciones en \(\mora{k_c}\), lo que se observa en la proximidad de los polos al borde del círculo unitario en el L.G.R.
 
-Posibles Comentarios
-\begin{itemize}
-    \item Idem (c), (d), (f) y (g) comparando con el controlador con integrador tiempo continuo
-\end{itemize}
+Por medio del análisis del L.G.R y del controlador \(\mora{k_c}/(z-1)\) podemos decir que, si o si uno de los polos se va a posicionar en 1, y al estar hablando de un sistema discreto al posicionar el polo en ese lugar, este se ubica en el borde de la circunferencia unitaria, considerando al sistema marginalmente estable para ese valor, esto quiere decir, que para cualquier valor de \(\mora{k_c}< 0\) generará que el sistema sea inestable. 
+
+
+En resumen con lo anterior y el análisis de L.G.R tenemos que la estabilidad del sistema se garantiza únicamente en el rango \(0 \leq \mora{k_{c}} \leq 6.9\unit{m} \),donde los polos permanecen dentro del círculo unitario, manteniendo la estabilidad en el dominio discreto. Esta configuración, si bien permite reducir el error en estado estacionario, introduce oscilaciones en la respuesta que pueden requerir ajustes del \(\mora{k_{c}} \), dependiendo de como queramos que reaccione nuestro sistema, teniendo cuidado de no estar en los extremos, para que no ocurra alguna inestabilidad. sobre todo si este caso se lleva a la realidad donde hay variables que se desprecian o se aproximan y podrían hacer que el sistema de haga inestable a pesar de que en lo teórico es estable. 

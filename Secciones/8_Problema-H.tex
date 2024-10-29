@@ -162,5 +162,8 @@ Posibles Comentarios
 \end{itemize}
 
 
-que se pude comentar:
- C) en ambos se mantuvo el cero .... El lazo directo se mantuvo igual solo añadió un polo en 0.... y en LC los polos cambian con respecto a C  (ver que mas y chamullar luego)
+ En el caso de analizar el sistema con un controlador de tipo integrador (\(\mora{k_c}/s\)), observamos algunos cambios con respecto al Controlador proporcional. Al comparar los polos y ceros en L.D. y L.C., se mantiene el cero en el mismo lugar que en el caso con el controlador proporcional, dado que el integrador no afecta esta posición y como mencionamos depende netamente de la planta. Sin embargo, en L.D añade un polo en el origen que modifica la dinámica del sistema. Esto se traduce en una respuesta de mayor persistencia en la dinámica, con tendencia a eliminar el error en estado estacionario como se ha visto en clases, y como vimos en la tarea 1 es capaz de llegar a la entrada de referencia.
+
+Ademas con L.G.R. vemos que gracias al ser con controlador integrador, en este caso el sistema es estable solo en un rango positivo de ganancias (\(\mora{k_c}\)) solamente. Ya que en el negativo gracias al polo que se genera en el origen, donde si el \(\mora{k_c}\) fuera menor que $0$ se haría inestable, ya que un polo pasaría al semiplano Derecho.
+
+En resumen con el L.G.R se obtiene el análisis de estabilidad donde dio el rango de \(0 \leq \mora{k_{c}} \leq 31\unit{m}\) muestra que la respuesta del sistema puede controlarse efectivamente con valores de ganancia adecuados, proporcionando una respuesta más estable y sin oscilaciones no deseadas en el régimen estacionario.
