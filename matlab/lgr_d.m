@@ -5,7 +5,6 @@ set(groot,'defaultLineLineWidth',1.5)
 k_st = 180/pi; k_a = 100;
 
 %% Lugar Geometrico de las Raices
-
 sys = ss(A, B, C, 0);
 LaD = k_st * k_a * sys; % Lazo Directo
 k = linspace(0, 1, 3e3);

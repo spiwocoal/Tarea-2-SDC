@@ -12,7 +12,7 @@ z = tf('z', T);
 sys = c2d(sys_c, T);
 ret = 1/z; % Retardo por calculo
 LaD = k_st * ret * k_a * sys; % Lazo Directo
-%%
+
 f1 = figure(1);
 rlocus(LaD);
 ylim([-2 2]);

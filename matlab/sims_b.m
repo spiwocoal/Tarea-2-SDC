@@ -10,8 +10,8 @@ psi_d = psi_0 .* k_st .* (rampa(t - 1) - rampa(t - 5)) ./ 4;
 
 cnt = k_c; % Controlador proporcional
 sys = ss(A, B, C, 0);
-LaD = cnt * k_a * sys; % Lazo Directo
-LaC = feedback(LaD, k_st); % Lazo Cerrado
+LaA = cnt * k_a * sys; % Lazo Abierto
+LaC = feedback(LaA, k_st); % Lazo Cerrado
 
 [psi, ~, x] = lsim(LaC, psi_d, t); % Salida del sistema
 psi_m = k_st * psi; % Ángulo medido

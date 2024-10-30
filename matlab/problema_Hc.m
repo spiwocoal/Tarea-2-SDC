@@ -7,12 +7,12 @@ k_st = 180/pi; k_a = 100; k_c = 10e-3;
 s = tf("s");
 cnt = k_c/s; % Controlador con integrador
 sys = ss(A, B, C, 0);
-LaD1 = cnt * k_a * sys * k_st; % Lazo Directo
-LaD2 = cnt * k_a * sys;
-LaC = feedback(LaD2, k_st);  % Lazo Cerrado
+LaD = cnt * k_a * sys * k_st; % Lazo Directo
+LaA = cnt * k_a * sys; % Lazo Abierto
+LaC = feedback(LaA, k_st);  % Lazo Cerrado
 
 %% Determinacion polos y ceros
-[p_LaD, z_LaD] = pzmap(LaD1); % Lazo Directo
+[p_LaD, z_LaD] = pzmap(LaD); % Lazo Directo
 [p_LaC, z_LaC] = pzmap(LaC);  % Lazo Cerrado
 disp('Polos del L.D:');
 disp(p_LaD);

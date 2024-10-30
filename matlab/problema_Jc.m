@@ -11,8 +11,8 @@ z = tf('z', T);
 sys = c2d(sys_c, T);
 ret = 1/z; % Retardo por calculo
 LaD = (k_c/(z-1)) * ret * k_a * sys * k_st; % Lazo Directo
-aux_LaD =  ret * (k_c/(z-1)) * k_a * sys; 
-LaC = feedback(aux_LaD, k_st);  % Lazo Cerrado
+LaA =  ret * (k_c/(z-1)) * k_a * sys; % Lazo Abierto
+LaC = feedback(LaA, k_st);  % Lazo Cerrado
 
 %% Determinacion polos y ceros
 [p_LaD, z_LaD] = pzmap(LaD);  % Lazo Directo
