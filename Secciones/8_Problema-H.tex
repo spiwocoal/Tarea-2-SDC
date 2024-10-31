@@ -88,10 +88,30 @@ Las raíces del sistema en L.C. están entonces dadas por
     1 + \mora{k_{c}}\frac{3033s + 13531}{s\left(s^{3} + 2.83s^{2} + 80.87s + 119.5\right)} = 0
 \end{equation}
 
-Así, se utiliza \textit{MATLAB} para obtener los valores de $\mora{k_{c}}$ que
+Así, se utiliza \textit{MATLAB} con el \autoref{lst:Cod_problema_He} de para obtener los valores de $\mora{k_{c}}$ que
 permiten que $\mathfrak{Re}(\lambda_{0}) = 10\mathfrak{Re}(\lambda_{1})$, siendo
-$\lambda_{0}, \lambda_{1}$ dos raíces del sistema. El valor encontrado es entonces
-que, para que el sistema se comporte como uno de segundo orden, el valor de
+$\lambda_{0}, \lambda_{1}$ dos raíces del sistema.
+El valor encontrado son los siguientes:
+\begin{itemize}
+    \item Primer orden 
+    
+Ahora bien, para que el sistema se comporte como uno de primer orden, el valor de
+$\mora{k_{c}}$ debe ser:
+\begin{equation}
+    \boxed{\mora{k_{c}} = 0.000556}
+\end{equation}
+
+se observa entonces que para las ganancia dada,
+se tienen los siguientes polos:
+\begin{itemize}
+    \item $\lambda_{0,1} = -0.6489 \pm 8.8521j$
+    \item $\lambda_{2} = -0.0654 $
+    \item $\lambda_{3} = -1.4715  $
+\end{itemize}
+
+    \item segundo orden:
+    
+    para que el sistema se comporte como uno de segundo orden, el valor de
 $\mora{k_{c}}$ debe ser:
 \begin{equation}
     \boxed{\mora{k_{c}} = 0.0253}
@@ -103,6 +123,10 @@ se tienen los siguientes polos:
     \item $\lambda_{0,1} = -1.2885 \pm 1.6913j$
     \item $\lambda_{2,3} = -0.1288 \pm 8.6988j$
 \end{itemize}
+\end{itemize}
+
+
+%%%
 
 Se observa que no hay valor negativo de $\mora{k_{c}}$ para el cual sea posible
 reducir el orden del sistema, manteniendo estabilidad puesto que para ganancias

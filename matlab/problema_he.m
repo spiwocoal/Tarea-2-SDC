@@ -1,3 +1,4 @@
+
 matrices;
 syms s
 syms kc real
@@ -19,7 +20,14 @@ polos = solve(eq1 == 0, s, MaxDegree=4);
 
 eq2 = real(polos(1)) == 10 * real(polos(3));
 
+eq3 = real(polos(3)) == 10 * real(polos(1));
+
 kc_orden1 = vpasolve(eq2, kc);
 
-fprintf('Ganancia para sistema de orden 1: %.4f\n', ...
-    kc_orden1);
+kc_orden2 = vpasolve(eq3, kc);
+
+fprintf('Ganancia para sistema de orden 1: %.4f\n', kc_orden1);
+fprintf('Ganancia para sistema de orden 2: %.4f\n', kc_orden1);
+
+
+    
